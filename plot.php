@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-us" class="pf-theme-dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,35 +9,79 @@
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/table.css">
+<link rel="stylesheet" href="css/patternfly.css" />
+<link rel="stylesheet" href="css/patternfly-addons.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
 
 </head>
 
 <body>
+<header class="pf-c-page__header">
+                <div class="pf-c-page__header-brand">
+                  <div class="pf-c-page__header-brand-toggle">
+                  </div>
+                  <a class="pf-c-page__header-brand-link" href="index.php">
+                  <img class="pf-c-brand" src="images/telescope-viewfinder.png" alt="Viewfinder logo" />
+                  </a>
+                </div>
+</header>
+
+<div class="bigtable">
+<table>
+	<thead>
+		<tr>
+			<th>Control</th>
+			<th>Rating</th>
+			</tr>
+		</tr>
+</thead>
 <?php
 parse_str($_SERVER["QUERY_STRING"], $data);
-#$chars = '23456789ABCDEFGHJKLMNPQRSTUVWXYZ';
-#$data['hash'] = substr(str_shuffle($chars), 0, 5);
 #print_r($data);
+$string = file_get_contents("controls.json");
+$json = json_decode($string, true);
 
 $controlTotal = array_fill(0,8,0);
-#$controlDetails = array_fill(0,8,0);
 $controlDetails = array(array_fill(0,8,0));
 
 foreach($data as $field=>$value){
 	if (strpos($field,"control") !== false){
     $controlNumber = substr($field,7,1);
-    $tt = 0;
 	$controlTotal[$controlNumber] += $value;
 }
 }
 
+function getRating($score) {
+	$rating  = "Foundation";
+	switch($score) {
+		case ($score > 4 && $score < 11):
+			$rating = "Strategic";
+			break;
+		case ($score > 12):
+			$rating = "Advanced";
+	}
+	return $rating;
+}
+$totalScore = 0;
 ## Work out all the stuff for the table
+$controls = array("SecureInfrastructure","SecureData","SecureIdentity","SecureApplication","SecureNetwork","SecureRecovery","SecureOperations");
+#print_r($controlTotal);
+foreach ($controls as $control) {
+	print "<tr>";
+	$title = $json[$control]['title'];
+	$qnum = $json[$control]['qnum'];
+	$score = $controlTotal[$qnum];
+	$totalScore += $score;
+	print "<td>" . $title . "</td>";
+	print "<td class='cell" . getRating($score) . "'>" . getRating($score) . "</td>";
+	print "</tr>";
 
-print_r($data);
+}
+print "<br><p>Total Score: $totalScore </p><br>";
 ?>
-
-<div class="bigtable">
+</table>
+</div>
+<!-- <div class="bigtable">
 
 <table><thead><tr>
 <th>Rating</th>
@@ -49,12 +93,6 @@ print_r($data);
 <th>Secure Recovery</th>
 <th>Secure Operations</th>
 
-<?php
-function getSelected($cell) {
-
-
-}
-?>
 
 </tr></thead>
 <tr>
@@ -68,9 +106,10 @@ function getSelected($cell) {
 <td class="notcompleted">Purple Teaming</td>                           
 </tr>
 </table>
-</div>
+</div> -->
+<div class="whiteBackground">
 <div class="radarChart"></div>
-
+</div>
 		<script src="js/radarChart.js"></script>	
 		<script>
       
@@ -113,7 +152,8 @@ function getSelected($cell) {
 			  //maxValue: 0.5,
 			  levels: 7,
 			  roundStrokes: true,
-			  color: color
+			  color: color,
+			  
 			};
 			//Call function to draw the Radar chart
 			RadarChart(".radarChart", data, radarChartOptions);

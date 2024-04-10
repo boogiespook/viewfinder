@@ -33,7 +33,7 @@ function copyToClipboard(element) {
                   <div class="pf-c-page__header-brand-toggle">
                   </div>
                   <a class="pf-c-page__header-brand-link" href="index.php">
-                  <img class="pf-c-brand" src="images/viewfinder-banner.png" alt="Viewfinder logo" />
+                  <img class="pf-c-brand" src="images/telescope-viewfinder.png" alt="Viewfinder logo" />
                   </a>
                 </div>
 </header>
@@ -53,13 +53,14 @@ $i=1;
 $qnum = $json[$area]['qnum'];
 $title = $json[$area]['title'];
 $control = $area;
-print "<p class='overview'>" . $json[$area]['overview'] . "</p>";
+print "<p class='overviewWhite'>" . $json[$area]['overview'] . "</p>";
 print "<ul class='ks-cboxtags'>\n";
 while( $i < 9) {
   $points= $i . '-summary';
   $tier = $i . '-tier';
   $tierClass = "smallText" . $json[$area][$tier];
-  print '<li><input type="checkbox" name="' . "control" . $qnum . "-" . $i . "\" id=\"" . "control" . "$qnum" . "-" . $i . '" value="' . $i . '"><label for="' . "control" . $qnum . "-" . $i . '"><p class="' . $tierClass. '">'  . $json[$area][$tier] . '</p>' . $json[$area][$i] . '&nbsp </label></li>'. "\n";
+  $points = $i . "-points";
+  print '<li><input type="checkbox" name="' . "control" . $qnum . "-" . $i . "\" id=\"" . "control" . "$qnum" . "-" . $i . '" value="' . $json[$area][$points] . '"><label for="' . "control" . $qnum . "-" . $i . '"><p class="' . $tierClass. '">'  . $json[$area][$tier] . '</p>' . $json[$area][$i] . '&nbsp </label></li>'. "\n";
   $i++;
 }
 print "</ul>";
