@@ -1,0 +1,400 @@
+  body {
+	margin-top:10px;
+	margin-left:250px;
+	font-family: 'overpass';
+	color: #666
+  }
+
+#content{
+	width:80%;
+}
+
+#centerDiv {
+	margin: auto;
+   text-align: center;
+
+}
+
+  #eq  {
+    width:100%; 
+  }  
+  
+  #lefty {
+	float: left;  
+	color: #008000;
+	font-weight: bolder;
+	font-size: 2em;
+  }
+  
+  #righty {
+	float:right;  
+	color: #FF0000;
+	font-weight: bolder;
+	font-size: 2em;
+  }
+
+  #votes {
+	float:right;  
+	font-weight: bolder;
+	font-size: 1.2em;
+	width: 20px;
+	border: 0px;
+	margin-left: 1px;
+	margin-right: -40px;
+	margin-top: -2.1em;
+  }
+  
+input {
+border-radius: 15px;
+margin: 10px;
+}  
+
+#linkText {
+	font-weight: bold;
+	font-size: 2em;
+   text-decoration: none;
+}
+
+#okToSubmit {
+	font-weight: bold;
+	font-size: 1.2em;
+	color: #648a3f;
+}
+
+#duplicates {
+	font-weight: bold;
+	font-size: 1.2em;
+	color: #DC143C;
+	margin:auto;
+	text-align: center;
+}
+
+input[type=text] { width: 100px; }
+
+input[type=range] {
+  -webkit-appearance: none;
+  margin: 18px 0;
+  width: 100%;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: #3071a9;
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
+}
+input[type=range]::-webkit-slider-thumb {
+  height: 81px;
+  width: 60px;
+  border-radius: 3px;
+  background-image: url(redhat-new-logo-small.png);
+  background-repeat: no-repeat;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -14px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #367ebd;
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: #3071a9;
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
+}
+input[type=range]::-moz-range-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: transparent;
+  border-color: transparent;
+  border-width: 16px 0;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: #2a6495;
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+input[type=range]::-ms-fill-upper {
+  background: #3071a9;
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+input[type=range]::-ms-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: #3071a9;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: #367ebd;
+}
+
+.sliderticks {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+.sliderticks p {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 2px;
+  background: #D3D3D3;
+  height: 5px;
+  line-height: 30px;
+  margin: 0 0 5px 0;
+}
+
+.row {
+  display: flex;
+}
+
+/* Create two equal columns that sits next to each other */
+.column {
+  flex: 50%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+ul.ks-cboxtags {
+    list-style: none;
+    padding: 20px;
+}
+ul.ks-cboxtags li{
+  display: inline;
+}
+ul.ks-cboxtags li label{
+    display: inline-block;
+    background-color: rgba(255, 255, 255, .9);
+    border: 2px solid rgba(139, 139, 139, .3);
+    border-radius: 25px;
+    white-space: nowrap;
+    margin: 3px 0px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: all .2s;
+}
+
+ul.ks-cboxtags li label {
+    padding: 30px 30px;
+    cursor: pointer;
+}
+
+ul.ks-cboxtags li label::before {
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 14px;
+    padding: 2px 6px 2px 2px;
+    transition: transform .3s ease-in-out;
+}
+
+ul.ks-cboxtags li input[type="checkbox"]:checked + label::before {
+    transform: rotate(-360deg);
+    transition: transform .3s ease-in-out;
+}
+
+ul.ks-cboxtags li input[type="checkbox"]:checked + label {
+    border: 2px solid #ff0000;
+    background-color: #12bbd4;
+    color: #000000;
+    transition: all .2s;
+}
+
+ul.ks-cboxtags li input[type="checkbox"] {
+  display: absolute;
+}
+ul.ks-cboxtags li input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+}
+
+.boxy {
+				margin: 40px auto;
+				width: 500px;
+}
+			ol{
+				counter-reset: li;
+				list-style: none;
+				*list-style: decimal;
+				padding: 0;
+				text-shadow: 0 1px 0 rgba(255,255,255,.5);
+			}
+			.circle-list li{
+			    padding: 1em;
+			}
+
+			.circle-list h2{
+			    position: relative;
+			    margin: 0;
+			    font-size: 1.2em;
+			}
+
+			.circle-list p{
+			    margin: 0;
+			}
+
+			.circle-list h2:before{
+			    content: counter(li);
+			    counter-increment: li;
+			    position: absolute;    
+			    z-index: -1;
+			    left: -1.3em;
+			    top: -.8em;
+			    background: #96c6f2;
+			    height: 1.5em;
+			    width: 1.5em;
+			    border: .1em solid rgba(0,0,0,.05);
+			    text-align: center;
+			    color: #ffffff;
+			    -moz-border-radius: 1.5em;
+			    -webkit-border-radius: 1.5em;
+			    border-radius: 1.5em;
+			    -webkit-transition: all .2s ease-out;
+			    -moz-transition: all .2s ease-out;
+			    -ms-transition: all .2s ease-out;
+			    -o-transition: all .2s ease-out;
+			    transition: all .2s ease-out;    
+			}
+
+			.circle-list li:hover h2:before{
+			    background-color: #ffd797;
+			    border-color: rgba(0,0,0,.08);
+			    border-width: .2em;
+			    color: #444;
+			    -webkit-transform: scale(1.5);
+			    -moz-transform: scale(1.5);
+			    -ms-transform: scale(1.5);
+			    -o-transform: scale(1.5);
+			    transform: scale(1.5);
+			}
+
+			.rounded-list a{
+				position: relative;
+				display: block;
+				padding: .4em .4em .4em 2em;
+				*padding: .4em;
+				margin: .5em 0;
+				background: #ddd;
+				color: #444;
+				text-decoration: none;
+				-moz-border-radius: .3em;
+				-webkit-border-radius: .3em;
+				border-radius: .3em;
+				-webkit-transition: all .3s ease-out;
+				-moz-transition: all .3s ease-out;
+				-ms-transition: all .3s ease-out;
+				-o-transition: all .3s ease-out;
+				transition: all .3s ease-out;	
+			}
+
+			.rounded-list a:hover{
+				background: #eee;
+				text-decoration: none;
+			}
+
+			.rounded-list a:hover:before{
+				-moz-transform: rotate(360deg);
+			  	-webkit-transform: rotate(360deg);
+			    -moz-transform: rotate(360deg);
+			    -ms-transform: rotate(360deg);
+			    -o-transform: rotate(360deg);
+			    transform: rotate(360deg);	
+			}
+
+			.rounded-list a:before{
+				content: counter(li);
+				counter-increment: li;
+				position: absolute;	
+				left: -1.3em;
+				top: 50%;
+				margin-top: -1.3em;
+				background: #87ceeb;
+				height: 3em;
+				width: 3em;
+				line-height: 2em;
+				border: .3em solid #fff;
+				text-align: center;
+				font-weight: bold;
+				-moz-border-radius: 2em;
+				-webkit-border-radius: 2em;
+				border-radius: 2em;
+				-webkit-transition: all .3s ease-out;
+				-moz-transition: all .3s ease-out;
+				-ms-transition: all .3s ease-out;
+				-o-transition: all .3s ease-out;
+				transition: all .3s ease-out;
+			}
+
+input.underlined
+{
+   border:0;
+   border-bottom:solid 1px #000;
+   border-radius: 0px;
+   width: 200px;
+   color: grey;
+   font-style: italic;
+   outline:none; /* prevents textbox highlight in chrome */
+}
+
+.overview {
+	color: rgb(253, 251, 251);  
+}
+
+.smallTextFoundation {
+	color: #b1b0b0;
+	font-size: smaller;
+	text-align: center;
+}
+
+.smallTextStrategic {
+	color: #fdd171;
+	font-size: smaller;
+	text-align: center;
+}
+
+.smallTextAdvanced {
+	color: #2aaa04;
+	font-size: smaller;
+	text-align: center;
+}
