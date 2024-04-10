@@ -1,0 +1,105 @@
+import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+
+def determine_maturity_level(score, total=False):
+    if not total:
+        if score <= 12:
+            return "Foundational"
+        elif score <= 24:
+            return "Strategic"
+        else:
+            return "Advanced"
+    else:
+        if score <= 84:
+            return "Foundational"
+        elif score <= 168:
+            return "Strategic"
+        else:
+            return "Advanced"
+
+def get_scores_for_level(capability, level, max_points):
+    score = 0
+    for point in range(1, max_points + 1):
+        while True:  # Add a loop to ensure valid input
+            response = input(f"Confirm {capability} {level} capability {point} (y/n): ").strip().lower()
+            if response in ['y', 'n']:  # Check if response is valid
+                if response == 'y':
+                    score += point
+                break  # Exit the loop for both 'y' and 'n' responses
+            else:
+                print("Invalid input. Please enter 'y' for yes or 'n' for no.")
+    return score
+
+def calculate_adjusted_score(capabilities_maturity, total_score):
+    base_multipliers = {"Foundational": 1.02, "Strategic": 1.03, "Advanced": 1.04}
+    overall_multiplier = 1.0
+    adjusted_domains = []
+    for level, count in capabilities_maturity.items():
+        if count > 0:
+            overall_multiplier *= (base_multipliers[level] ** count)
+            adjusted_domains.append(level)
+    adjusted_score = total_score * overall_multiplier
+    return adjusted_score, adjusted_domains
+
+def create_spider_chart(capability_scores, adjusted_score, overall_maturity_level):
+    df = pd.DataFrame(capability_scores, columns=['Capability', 'Score', 'Maturity'])
+    df['Normalized Score'] = df['Score'] / 36
+    categories = df['Capability'].values
+    N = len(categories)
+    angles = [n / float(N) * 2 * np.pi for n in range(N)]
+    angles += angles[:1]
+    ax = plt.subplot(111, polar=True)
+    plt.xticks(angles[:-1], categories, color='grey', size=8)
+    ax.set_rlabel_position(0)
+    plt.yticks([0.25, 0.5, 0.75], ["0.25", "0.5", "0.75"], color="grey", size=7)
+    plt.ylim(0,1)
+    values = df['Normalized Score'].values.flatten().tolist()
+    values += values[:1]
+    ax.plot(angles, values, linewidth=1, linestyle='solid', label='Maturity Score')
+    ax.fill(angles, values, 'b', alpha=0.1)
+    plt.title(f'Security Maturity Assessment - Overall Maturity: {overall_maturity_level}', size=11, color='blue', y=1.1)
+    plt.legend(loc='upper right', bbox_to_anchor=(0.1, 0.1))
+    plt.show()
+
+def main():
+    capabilities = [
+        "Secure Operations", "Secure Recovery", "Secure Network", "Secure Application",
+        "Secure Identity", "Secure Data", "Secure Infrastructure"
+    ]
+
+    total_score = 0
+    capabilities_maturity = {"Foundational": 0, "Strategic": 0, "Advanced": 0}
+    capability_details = []
+
+    for capability in capabilities:
+        print(f"\nEntering scores for {capability}:")
+
+        foundational_score = get_scores_for_level(capability, "Foundational", 3)
+        strategic_score = get_scores_for_level(capability, "Strategic", 3)
+        advanced_score = get_scores_for_level(capability, "Advanced", 2)
+
+        capability_score = foundational_score + strategic_score + advanced_score
+        capability_maturity = determine_maturity_level(capability_score)
+        capabilities_maturity[capability_maturity] += 1
+        total_score += capability_score
+        capability_details.append((capability, capability_score, capability_maturity))
+
+    adjusted_score, adjusted_domains = calculate_adjusted_score(capabilities_maturity, total_score)
+    overall_maturity_level = determine_maturity_level(adjusted_score, total=True)
+
+    # Create and show the spider chart
+    create_spider_chart(capability_details, adjusted_score, overall_maturity_level)
+
+    # Prepare and save the output to a text file
+    with open("security_maturity_assessment.txt", "w") as file:
+        for name, score, maturity in capability_details:
+            file.write(f"{name}: Score = {score}/36, Maturity = {maturity}\n")
+        if adjusted_domains:
+            file.write(f"Domains contributing to score adjustment: {', '.join(adjusted_domains)}\n")
+        file.write(f"Raw Total Score: {total_score}/252\n")
+        file.write(f"Adjusted Total Score: {adjusted_score:.2f}/252\n")
+        file.write(f"Overall Maturity Level: {overall_maturity_level}\n")
+
+if __name__ == "__main__":
+    main()
