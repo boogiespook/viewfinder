@@ -62,6 +62,20 @@ function getRating($score) {
 	}
 	return $rating;
 }
+
+function getTotalRating($score) {
+	$rating  = "Foundation";
+	switch($score) {
+		case ($score > 45 && $score < 80):
+			$rating = "Strategic";
+			break;
+		case ($score > 81):
+			$rating = "Advanced";
+	}
+	return $rating;
+}
+
+
 $totalScore = 0;
 ## Work out all the stuff for the table
 $controls = array("SecureInfrastructure","SecureData","SecureIdentity","SecureApplication","SecureNetwork","SecureRecovery","SecureOperations");
@@ -73,14 +87,15 @@ foreach ($controls as $control) {
 	$score = $controlTotal[$qnum];
 	$totalScore += $score;
 	print "<td>" . $title . "</td>";
-	print "<td class='cell" . getRating($score) . "'>" . getRating($score) . "</td>";
+	print "<td class='cell" . getRating($score) . "'>" . getRating($score) . " ($score out of 20)</td>";
 	print "</tr>";
-
 }
-print "<br><p>Total Score: $totalScore </p><br>";
+print '</table>';
+
+print "<br><table><tr><td>Overall</td><td class='cell" . getTotalRating($totalScore) ."'>" . getTotalRating($totalScore) . " ($totalScore out of 120)</td></tr></table>";
 ?>
-</table>
-</div>
+
+
 <!-- <div class="bigtable">
 
 <table><thead><tr>
@@ -107,6 +122,7 @@ print "<br><p>Total Score: $totalScore </p><br>";
 </tr>
 </table>
 </div> -->
+</div>
 <div class="whiteBackground">
 <div class="radarChart"></div>
 </div>
@@ -149,11 +165,10 @@ print "<br><p>Total Score: $totalScore </p><br>";
 			  w: width,
 			  h: height,
 			  margin: margin,
-			  //maxValue: 0.5,
+			  maxValue: 0.5,
 			  levels: 7,
 			  roundStrokes: true,
 			  color: color,
-			  
 			};
 			//Call function to draw the Radar chart
 			RadarChart(".radarChart", data, radarChartOptions);
