@@ -12,7 +12,7 @@
       <link rel="stylesheet" href="css/patternfly.css" />
       <link rel="stylesheet" href="css/patternfly-addons.css" />
 
-
+      <script src="https://kit.fontawesome.com/8a8c57f9cf.js" crossorigin="anonymous"></script>
 <script type="text/javascript" >
 function copyToClipboard(element) {
   var $temp = $("<input>");
@@ -56,11 +56,18 @@ $control = $area;
 print "<p class='overviewWhite'>" . $json[$area]['overview'] . "</p>";
 print "<ul class='ks-cboxtags'>\n";
 while( $i < 9) {
-  $points= $i . '-summary';
+  //$infoButton = '<i class="fa-solid fa-circle-info"></i>';
+  $summary= $i . '-summary';
+   ## If a summary in there, use it as a tooltip
+  if ($json[$area][$summary] != "") {
+  $itemSummary = '&nbsp; <i class="fa-solid fa-circle-info" title="' . $json[$area][$summary] . '"></i>';
+  } else {
+    $itemSummary = "";
+  }
   $tier = $i . '-tier';
   $tierClass = "smallText" . $json[$area][$tier];
   $points = $i . "-points";
-  print '<li><input type="checkbox" name="' . "control" . $qnum . "-" . $i . "\" id=\"" . "control" . "$qnum" . "-" . $i . '" value="' . $json[$area][$points] . '"><label for="' . "control" . $qnum . "-" . $i . '"><p class="' . $tierClass. '">'  . $json[$area][$tier] . '</p>' . $json[$area][$i] . '&nbsp </label></li>'. "\n";
+  print '<li><input type="checkbox" name="' . "control" . $qnum . "-" . $i . "\" id=\"" . "control" . "$qnum" . "-" . $i . '" value="' . $json[$area][$points] . '"><label for="' . "control" . $qnum . "-" . $i . '"><p class="' . $tierClass. '">'  . $json[$area][$tier] . '</p>' . $json[$area][$i] . "$itemSummary &nbsp </label></li>". "\n";
   $i++;
 }
 print "</ul>";
