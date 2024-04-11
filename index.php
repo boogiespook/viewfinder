@@ -12,7 +12,7 @@
       <link rel="stylesheet" href="css/patternfly.css" />
       <link rel="stylesheet" href="css/patternfly-addons.css" />
 
-
+      <script src="https://kit.fontawesome.com/8a8c57f9cf.js" crossorigin="anonymous"></script>
 <script type="text/javascript" >
 function copyToClipboard(element) {
   var $temp = $("<input>");
@@ -33,7 +33,7 @@ function copyToClipboard(element) {
                   <div class="pf-c-page__header-brand-toggle">
                   </div>
                   <a class="pf-c-page__header-brand-link" href="index.php">
-                  <img class="pf-c-brand" src="images/viewfinder-banner.png" alt="Viewfinder logo" />
+                  <img class="pf-c-brand" src="images/telescope-viewfinder.png" alt="Viewfinder logo" />
                   </a>
                 </div>
 </header>
@@ -53,13 +53,21 @@ $i=1;
 $qnum = $json[$area]['qnum'];
 $title = $json[$area]['title'];
 $control = $area;
-print "<p class='overview'>" . $json[$area]['overview'] . "</p>";
+print "<p class='overviewWhite'>" . $json[$area]['overview'] . "</p>";
 print "<ul class='ks-cboxtags'>\n";
 while( $i < 9) {
-  $points= $i . '-summary';
+  //$infoButton = '<i class="fa-solid fa-circle-info"></i>';
+  $summary= $i . '-summary';
+   ## If a summary in there, use it as a tooltip
+  if ($json[$area][$summary] != "") {
+  $itemSummary = '&nbsp; <i class="fa-solid fa-circle-info" title="' . $json[$area][$summary] . '"></i>';
+  } else {
+    $itemSummary = "";
+  }
   $tier = $i . '-tier';
   $tierClass = "smallText" . $json[$area][$tier];
-  print '<li><input type="checkbox" name="' . "control" . $qnum . "-" . $i . "\" id=\"" . "control" . "$qnum" . "-" . $i . '" value="' . $i . '"><label for="' . "control" . $qnum . "-" . $i . '"><p class="' . $tierClass. '">'  . $json[$area][$tier] . '</p>' . $json[$area][$i] . '&nbsp </label></li>'. "\n";
+  $points = $i . "-points";
+  print '<li><input type="checkbox" name="' . "control" . $qnum . "-" . $i . "\" id=\"" . "control" . "$qnum" . "-" . $i . '" value="' . $json[$area][$points] . '"><label for="' . "control" . $qnum . "-" . $i . '"><p class="' . $tierClass. '">'  . $json[$area][$tier] . '</p>' . $json[$area][$i] . "$itemSummary &nbsp </label></li>". "\n";
   $i++;
 }
 print "</ul>";
