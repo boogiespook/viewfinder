@@ -16,7 +16,8 @@
 .bigtableRight {
 	position: absolute;
 	top: 30%;
-	left: 70%;
+	left: 68%;
+	padding-right: 10px;
 }
 
 .headers {

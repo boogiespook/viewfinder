@@ -386,20 +386,20 @@ input.underlined
 }
 
 .smallTextFoundation {
-	color: #b1b0b0;
-	font-size: smaller;
+	color: #4291f8;
+	font-size: small;
 	text-align: center;
 }
 
 .smallTextStrategic {
-	color: #fdd171;
-	font-size: smaller;
+	color: #0f01ca;
+	font-size: small;
 	text-align: center;
 }
 
 .smallTextAdvanced {
 	color: #2aaa04;
-	font-size: smaller;
+	font-size: small;
 	text-align: center;
 }
 
@@ -426,4 +426,9 @@ input.underlined
 
 .whiteBackground {
 	background-color: #ffffff;
+}
+
+.bullet {
+	list-style-type: none;
+	margin-left: -0.5rem;
 }

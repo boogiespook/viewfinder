@@ -38,6 +38,8 @@
 		</tr>
 </thead>
 <?php
+#phpinfo();
+
 parse_str($_SERVER["QUERY_STRING"], $data);
 #print_r($data);
 $string = file_get_contents("controls.json");
@@ -100,37 +102,43 @@ print '</table>';
 print "<br><table><td class='cell" . getTotalRating($totalScore) ."'>Overall rating: " . getTotalRating($totalScore) . " ($totalScore out of 252)</td></tr></table>";
 ?>
 
-<!-- <div class="bigtable">
-
-<table><thead><tr>
-<th>Rating</th>
-<th>Secure Infrastructure</th>
-<th>Secure Data</th>
-<th>Secure Identity</th>
-<th>Secure Application</th>
-<th>Secure Network</th>
-<th>Secure Recovery</th>
-<th>Secure Operations</th>
-
-
-</tr></thead>
-<tr>
-<td class="advanced"></td>
-<td class="notcompleted">Identity-Based Perimeter</td>                 
-<td class="notcompleted">Anomaly Detection</td>                        
-<td class="notcompleted">Contextual / Risk Based Access</td>           
-<td class="notcompleted">Interactive Application Security Testing</td> 
-<td class="notcompleted">Zero Trust Network Access</td>                
-<td class="notcompleted">Predictive Recovery</td>                      
-<td class="notcompleted">Purple Teaming</td>                           
-</tr>
-</table>
-</div> -->
-
-
 </div>
 <div class="bigtableRight">
 <h1 class="headers">Next Steps</h1>
+<div class="tab">
+<?php
+foreach ($controls as $control) {
+	$title = $json[$control]['title'];
+	print '<button class="tablinks" onclick="openCity(event, \'' . $control . '\')">' . $title .'</button>';
+}
+?>
+
+</div>
+<?php
+foreach ($controls as $control) {
+$highest=0;	
+print '<div id="' . $control . '" class="tabcontent">';
+## Write code to get correct results
+$qnum = $json[$control]['qnum'];
+## Get the highest score per capability
+foreach ($data as $key => $value) {
+if (preg_match("/^control$qnum-[0-9]*/", $key)) {
+	$highest++;
+	  }
+}
+$nextLevel = $highest + 1;
+if ($nextLevel < 9) {
+	print "The Highest score was $highest so show the recommendations for level $nextLevel<br>";
+}else {
+	print "You're doing great as you are!";
+}
+#print '<ul><li class="bullet">Control ' . $qnum . ': To reach the next level of maturity, consider implementing Infrastructure as Code to include config management and patching</li></ul>';
+print "</div>";
+}
+?>
+
+
+</div>
 </div>
 <div class="whiteBackground">
 <div class="radarChart"></div>
@@ -182,6 +190,27 @@ print "<br><table><td class='cell" . getTotalRating($totalScore) ."'>Overall rat
 			//Call function to draw the Radar chart
 			RadarChart(".radarChart", data, radarChartOptions);
 		</script>
+<script type="text/javascript" >
+function openCity(evt, cityName) {
+  // Declare all variables
+  var i, tabcontent, tablinks;
 
+  // Get all elements with class="tabcontent" and hide them
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  // Get all elements with class="tablinks" and remove the class "active"
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+
+  // Show the current tab, and add an "active" class to the button that opened the tab
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
 </body>
 </html>
