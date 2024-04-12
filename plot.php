@@ -62,7 +62,7 @@ foreach($data as $field=>$value){
 function getRating($score) {
 	$rating  = "Foundation";
 	switch($score) {
-		case ($score > 9 && $score < 21):
+		case ($score > 9 && $score < 22):
 			$rating = "Strategic";
 			break;
 		case ($score > 27):
@@ -120,18 +120,46 @@ $highest=0;
 print '<div id="' . $control . '" class="tabcontent">';
 ## Write code to get correct results
 $qnum = $json[$control]['qnum'];
-## Get the highest score per capability
+$levelArray = array();
+## Get the highest score per capability & keep the results
 foreach ($data as $key => $value) {
 if (preg_match("/^control$qnum-[0-9]*/", $key)) {
+	array_push($levelArray, substr($key, -1));
 	$highest++;
 	  }
 }
+
 $nextLevel = $highest + 1;
 if ($nextLevel < 9) {
-	print "The Highest score was $highest so show the recommendations for level $nextLevel<br>";
+	## Check if there is a recommendation for the next level
+	$nextRecommendation = $nextLevel . '-recommendation'; 
+	if ($json[$control][$nextRecommendation] != "") {
+		print "The recommendation for reaching the next level is to:<br> " . $json[$control][$nextRecommendation] . "<br>";
+
+	} else {
+		print "No recommendations available";
+	}
 }else {
 	print "You're doing great as you are!";
 }
+
+## Check for any gaps
+if ($levelArray) {
+	#print "Max: " . max($levelArray) . "<br>";
+	$allLevels = range(1,max($levelArray));
+	$missing = array_diff($allLevels,$levelArray);
+	if ($missing) {
+		print "<ul>";
+		print "You have skipped a few levels:<br>";
+		foreach ($missing as $notthere) {
+			print "Level $notthere: ";
+			print_r($json[$control][$notthere]);
+			print "<br>";
+		}
+		print "</ul>";
+	}
+	}
+
 #print '<ul><li class="bullet">Control ' . $qnum . ': To reach the next level of maturity, consider implementing Infrastructure as Code to include config management and patching</li></ul>';
 print "</div>";
 }

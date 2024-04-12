@@ -26,7 +26,7 @@
       "4-tier": "Strategic",
       "4-points": "4",
       "4-conversation" : "",
-      "4-recommendation" : "",
+      "4-recommendation" : "Do more infra stuff",
       "5": "Secrets Management",
       "5-summary": "Secrets management involves the secure handling, storage, and access control of sensitive information such as passwords, keys, and tokens to prevent unauthorized access and breaches. It ensures that secrets are encrypted, access is strictly controlled, and usage is audited, bolstering an organization's security framework.",
       "5-tier": "Strategic",
@@ -101,7 +101,9 @@
       "8": "Anomaly Detection",
       "8-summary": "Anomaly detection involves identifying patterns or activities within a data set that deviate from the expected behavior, signaling potential issues such as security breaches, fraud, or system failures. This process is essential for early threat detection and response, helping organizations to proactively address vulnerabilities and protect against malicious activities.",
       "8-tier": "Advanced",
-      "8-points": "8"
+      "8-points": "8",
+      "8-conversation" : "",
+      "8-recommendation" : ""
       },
     "SecureIdentity" : {
       "overview" : "Secure Identity involves verifying and managing the digital identities of users accessing systems, networks, and applications to prevent unauthorized access and ensure trustworthiness. It encompasses techniques such as multi-factor authentication, biometrics, and identity federation to authenticate users securely and authorize access based on their roles and permissions. By implementing robust identity management practices, organizations can reduce the risk of identity theft, fraud, and unauthorized access to sensitive information.",
@@ -152,7 +154,9 @@
       "8": "Contextual / Risk Based Access",
       "8-summary": "Contextual or Risk-Based Access Control (RBAC) is a dynamic approach to managing user access that evaluates the risk associated with each access request based on the context of the situation. Factors such as user location, device security status, time of access, and the sensitivity of the accessed data are considered to adjust authentication requirements and access permissions in real-time. This method enhances security by adapting protections based on the assessed risk level of a transaction or access attempt, ensuring stricter controls are applied in higher-risk scenarios.",
       "8-tier": "Advanced",
-      "8-points": "8"
+      "8-points": "8",
+      "8-conversation" : "",
+      "8-recommendation" : ""
     },
     "SecureApplication" : {
       "overview" : "Secure Applications refer to software programs and systems that are developed and maintained with a focus on mitigating security risks and vulnerabilities. This involves implementing secure coding practices, regular security assessments, and patch management to prevent exploitation by malicious actors. By prioritizing security throughout the software development lifecycle, organizations can ensure that their applications resist attacks and protect sensitive data from unauthorized access or manipulation.",
@@ -203,7 +207,9 @@
       "8": "Interactive Application Security Testing",
       "8-summary": "Interactive Application Security Testing (IAST) is a security testing approach that combines elements of both static application security testing (SAST) and dynamic application security testing (DAST) to detect vulnerabilities in applications. IAST tools are designed to be integrated into the application runtime environment, where they can observe and analyze application behavior and data flow in real-time as the application interacts with users or automated tests. This method allows for the detection of security issues that are only evident during the application's execution, such as runtime injection attacks or authentication problems. By providing immediate feedback to developers, IAST facilitates the rapid identification and remediation of security vulnerabilities within the software development lifecycle, enhancing the application's overall security posture.",
       "8-tier": "Advanced",
-      "8-points": "8"
+      "8-points": "8",
+      "8-conversation" : "",
+      "8-recommendation" : ""
     },  
     "SecureNetwork" : {
       "overview" : "Secure Network involves implementing measures to protect networks and data transmission from unauthorized access, interception, or tampering. This includes deploying firewalls, intrusion detection systems, and virtual private networks (VPNs) to safeguard communication channels and prevent external threats. By enforcing encryption protocols, segmenting networks, and regularly updating security configurations, organizations can maintain the integrity and confidentiality of their network infrastructure.",
@@ -254,7 +260,9 @@
       "8": "Zero Trust Network Access",
       "8-summary": "Zero Trust Network Access (ZTNA) is a security model that assumes no trust for any user or device inside or outside the corporate network perimeter. Instead of relying on traditional network perimeters, ZTNA verifies every user and device attempting to connect to resources, regardless of their location, before granting access based on policies and contextual factors. This approach minimizes the risk of unauthorized access and lateral movement of threats, providing a more robust and adaptive security posture in today's dynamic and distributed IT environments.",
       "8-tier": "Advanced",
-      "8-points": "8"
+      "8-points": "8",
+      "8-conversation" : "",
+      "8-recommendation" : ""
         },
     "SecureRecovery" : {
       "qnum" : "6",
@@ -303,7 +311,9 @@
       "8": "Predictive Recovery",
       "8-summary": "Predictive identity recovery is a concept that involves leveraging data analytics and machine learning algorithms to proactively detect and respond to identity-related issues or breaches before they escalate. By analyzing historical data, user behavior patterns, and access logs, predictive identity recovery solutions can identify anomalous activities or indicators of compromised identities. This enables organizations to take preemptive action, such as resetting compromised credentials, revoking unauthorized access, or initiating security incident response procedures, to mitigate potential risks and prevent further damage to the organization's security posture. Predictive identity recovery enhances security by enabling organizations to stay ahead of emerging threats and proactively protect their identities and data assets.",
       "8-tier": "Advanced",
-      "8-points": "8"
+      "8-points": "8",
+      "8-conversation" : "",
+      "8-recommendation" : ""
         },
     "SecureOperations" : {
       "overview" : "Secure Operations involves the implementation of policies, procedures, and technologies to ensure the ongoing security and integrity of an organization's systems and processes. This encompasses practices such as continuous monitoring, incident response planning, and security awareness training to detect and mitigate threats effectively. By integrating security into every aspect of operations, organizations can minimize risks, protect assets, and maintain the trust of stakeholders.",
@@ -354,6 +364,8 @@
       "8": "Purple Teaming",
       "8-summary": "Purple teaming is a collaborative security testing approach that brings together the red team (attackers) and blue team (defenders) to simulate realistic cyber attack scenarios and evaluate an organization's security posture. Unlike traditional red team engagements, which focus solely on simulating attacks, purple teaming involves close coordination between the red and blue teams throughout the testing process. This enables organizations to identify weaknesses in their security controls, improve detection and response capabilities, and enhance overall resilience against cyber threats by fostering communication, knowledge sharing, and continuous improvement between offensive and defensive security teams.",
       "8-tier": "Advanced",
-      "8-points": "8"
+      "8-points": "8",
+      "8-conversation" : "",
+      "8-recommendation" : ""
         }
     } 
