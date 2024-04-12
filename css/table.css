@@ -7,17 +7,27 @@
 }
 
 
-.bigtable {
+.bigtableLeft {
 	position: absolute;
-	top: 40%;
-	left: 60%;
-	transform: translate(-50%, -50%);
+	top: 30%;
+	left: 40%;
+}
+
+.bigtableRight {
+	position: absolute;
+	top: 30%;
+	left: 70%;
+}
+
+.headers {
+	font-size: 24px;
+	font-weight: bold;
+	padding-bottom: 10px;
 }
 table {
-	width: 800px;
+	width: 500px;
 	border-collapse: collapse;
 	overflow: hidden;
-	box-shadow: 0 0 20px rgba(0,0,0,0.1);
 }
 
 th,

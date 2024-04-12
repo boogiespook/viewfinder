@@ -3,12 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Security Assessment</title>
+  <title>Viewfinder - Results</title>
 <link rel="stylesheet" type="text/css" href="css/overpass.css"/>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/table.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/tab.css" />
+
 <link rel="stylesheet" href="css/patternfly.css" />
 <link rel="stylesheet" href="css/patternfly-addons.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
@@ -25,8 +27,8 @@
                   </a>
                 </div>
 </header>
-
-<div class="bigtable">
+<div class="bigtableLeft">
+<h1 class="headers">Breakdown By Control</h1>
 <table>
 	<thead>
 		<tr>
@@ -40,7 +42,11 @@ parse_str($_SERVER["QUERY_STRING"], $data);
 #print_r($data);
 $string = file_get_contents("controls.json");
 $json = json_decode($string, true);
-
+$controls = array();
+foreach($json as $key => $value) {
+	array_push($controls,$key);
+	}
+	
 $controlTotal = array_fill(0,8,0);
 $controlDetails = array(array_fill(0,8,0));
 
@@ -54,10 +60,10 @@ foreach($data as $field=>$value){
 function getRating($score) {
 	$rating  = "Foundation";
 	switch($score) {
-		case ($score > 4 && $score < 11):
+		case ($score > 9 && $score < 21):
 			$rating = "Strategic";
 			break;
-		case ($score > 12):
+		case ($score > 27):
 			$rating = "Advanced";
 	}
 	return $rating;
@@ -66,10 +72,10 @@ function getRating($score) {
 function getTotalRating($score) {
 	$rating  = "Foundation";
 	switch($score) {
-		case ($score > 45 && $score < 80):
+		case ($score > 84 && $score < 168):
 			$rating = "Strategic";
 			break;
-		case ($score > 81):
+		case ($score > 169):
 			$rating = "Advanced";
 	}
 	return $rating;
@@ -78,8 +84,7 @@ function getTotalRating($score) {
 
 $totalScore = 0;
 ## Work out all the stuff for the table
-$controls = array("SecureInfrastructure","SecureData","SecureIdentity","SecureApplication","SecureNetwork","SecureRecovery","SecureOperations");
-#print_r($controlTotal);
+
 foreach ($controls as $control) {
 	print "<tr>";
 	$title = $json[$control]['title'];
@@ -87,14 +92,13 @@ foreach ($controls as $control) {
 	$score = $controlTotal[$qnum];
 	$totalScore += $score;
 	print "<td>" . $title . "</td>";
-	print "<td class='cell" . getRating($score) . "'>" . getRating($score) . " ($score out of 20)</td>";
+	print "<td class='cell" . getRating($score) . "'>" . getRating($score) . " ($score out of 36)</td>";
 	print "</tr>";
 }
 print '</table>';
 
-print "<br><table><tr><td>Overall</td><td class='cell" . getTotalRating($totalScore) ."'>" . getTotalRating($totalScore) . " ($totalScore out of 120)</td></tr></table>";
+print "<br><table><td class='cell" . getTotalRating($totalScore) ."'>Overall rating: " . getTotalRating($totalScore) . " ($totalScore out of 252)</td></tr></table>";
 ?>
-
 
 <!-- <div class="bigtable">
 
@@ -122,6 +126,11 @@ print "<br><table><tr><td>Overall</td><td class='cell" . getTotalRating($totalSc
 </tr>
 </table>
 </div> -->
+
+
+</div>
+<div class="bigtableRight">
+<h1 class="headers">Next Steps</h1>
 </div>
 <div class="whiteBackground">
 <div class="radarChart"></div>
