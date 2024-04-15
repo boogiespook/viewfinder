@@ -45,6 +45,9 @@ deb31fe831fcc850e8b8023b693b60de7f470829ffb0fdeb67f6454b259884e5
 You can verify this by listing the images on your local machine
 
 ```podman images```
+
+and you will get an output something like this
+
 ``` localhost/viewfinder                    latest      deb31fe831fc  15 minutes ago  928 MB ```
 
 ### Running
