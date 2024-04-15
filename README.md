@@ -51,3 +51,14 @@ and you will get an output something like this
 ``` localhost/viewfinder                    latest      deb31fe831fc  15 minutes ago  928 MB ```
 
 ### Running
+
+Once you have the container built you are ready to run the application.
+
+``` podman run -p 8080:8080 localhost/viewfinder ```
+
+If everything is fine you will see a message like this 
+
+``` PHP 8.0.30 Development Server (http://0.0.0.0:8080) started ```
+
+You can then open a browser and type `localhost:8080` to open the main page.
+
