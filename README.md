@@ -10,6 +10,9 @@ You will need to be logged in to the Red Hat Registry (registry.access.redhat.co
 
 ``` podman login registry.access.redhat.com ```
 
+Enter your credentials and you will be able to pull the required images down to build the application.
+You can read more about this here: https://access.redhat.com/RegistryAuthentication
+
 Followed by.
 
 ``` podman build -t viewfinder:latest ```
@@ -38,5 +41,10 @@ COMMIT viewfinder:latest
 Successfully tagged localhost/viewfinder:latest
 deb31fe831fcc850e8b8023b693b60de7f470829ffb0fdeb67f6454b259884e5
 ```
+
+You can verify this by listing the images on your local machine
+
+```podman images```
+``` localhost/viewfinder                    latest      deb31fe831fc  15 minutes ago  928 MB ```
 
 ### Running
