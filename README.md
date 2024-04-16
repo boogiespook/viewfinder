@@ -6,6 +6,11 @@
 
 To build the viewfinder application locally you can use Podman or Docker.
 
+Firtly, clone this repo to your local host
+``` git clone https://github.com/boogiespook/viewfinder.git ```
+The cd to the code directory
+``` cd viewfinder ```
+
 You will need to be logged in to the Red Hat Registry (registry.access.redhat.com). 
 
 ``` podman login registry.access.redhat.com ```
