@@ -69,3 +69,7 @@ If everything is fine you will see a message like this
 
 You can then open a browser and type `localhost:8080` to open the main page.
 
+### Contributing
+
+If you would like to contribute to this project, please feel free to fork the repo.  All PRs are gratefully received!
+
