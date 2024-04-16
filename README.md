@@ -15,7 +15,7 @@ You can read more about this here: https://access.redhat.com/RegistryAuthenticat
 
 Followed by.
 
-``` podman build -t viewfinder:latest ```
+``` podman build -t viewfinder:latest . ```
 
 Output will look something like this
 
