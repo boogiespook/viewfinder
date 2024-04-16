@@ -6,7 +6,7 @@
 
 To build the viewfinder application locally you can use Podman or Docker.
 
-Firtly, clone this repo to your local host
+Firstly, clone this repo to your local host
 
 ``` git clone https://github.com/boogiespook/viewfinder.git ```
 
