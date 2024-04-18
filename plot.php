@@ -38,7 +38,6 @@
 		</tr>
 </thead>
 <?php
-#phpinfo();
 
 parse_str($_SERVER["QUERY_STRING"], $data);
 #print_r($data);
@@ -83,10 +82,8 @@ function getTotalRating($score) {
 	return $rating;
 }
 
-
 $totalScore = 0;
 ## Work out all the stuff for the table
-
 foreach ($controls as $control) {
 	print "<tr>";
 	$title = $json[$control]['title'];
@@ -109,7 +106,7 @@ print "<br><table><td class='cell" . getTotalRating($totalScore) ."'>Overall rat
 <?php
 foreach ($controls as $control) {
 	$title = $json[$control]['title'];
-	print '<button class="tablinks" onclick="openCity(event, \'' . $control . '\')">' . $title .'</button>';
+	print '<button class="tablinks" onclick="putTab(event, \'' . $control . '\')">' . $title .'</button>';
 }
 ?>
 
@@ -137,7 +134,7 @@ if ($nextLevel < 9) {
 		print "The recommendation for reaching the next level is to:<br> " . $json[$control][$nextRecommendation] . "<br>";
 
 	} else {
-		print "No recommendations available";
+		print "No current recommendations available for reaching level concerning '" . $json[$control][$nextLevel] . "'<br>";
 	}
 }else {
 	print "You're doing great as you are!";
@@ -211,7 +208,6 @@ print "</div>";
 			  h: height,
 			  margin: margin,
 			  maxValue: 0.5,
-			  levels: 7,
 			  roundStrokes: true,
 			  color: color,
 			};
@@ -219,7 +215,7 @@ print "</div>";
 			RadarChart(".radarChart", data, radarChartOptions);
 		</script>
 <script type="text/javascript" >
-function openCity(evt, cityName) {
+function putTab(evt, cityName) {
   // Declare all variables
   var i, tabcontent, tablinks;
 
