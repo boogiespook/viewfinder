@@ -147,10 +147,15 @@ if ($levelArray) {
 	$missing = array_diff($allLevels,$levelArray);
 	if ($missing) {
 		print "<ul>";
-		print "You have skipped a few levels:<br>";
+		print "You have skipped something:<br>";
 		foreach ($missing as $notthere) {
+			$skippedRecommendation = $notthere . '-recommendation';
 			print "Level $notthere: ";
-			print_r($json[$control][$notthere]);
+			if ($json[$control][$skippedRecommendation] != "") {
+			print $json[$control][$skippedRecommendation];
+			} else {
+				print "No current recommendations";
+			}
 			print "<br>";
 		}
 		print "</ul>";
