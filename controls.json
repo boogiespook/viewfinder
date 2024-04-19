@@ -32,7 +32,7 @@
       "5-tier": "Strategic",
       "5-points": "5",
       "5-conversation" : "",
-      "5-recommendation" : "",
+      "5-recommendation" : "Review and analyse, what a Secret is for your company (SSH-Keys, API Credentials, Passwords, Privatekeys, PubKeys) and on which systems they occur (Windows, Linux, Server, Client, Cloud). Decide on your secret strategy (i.e. short lived vs. long lived secrets; Revocation or not). Discover and implement a solution, which covers your needs across the secret lifecycle (Creation, Rotation, Revocation) and your systems (Linux, Windows, Clients).",
       "6": "Container Runtime Security",
       "6-summary": "Container runtime security focuses on protecting containers during their execution by monitoring and enforcing security policies to prevent unauthorized activities and vulnerabilities. It involves isolating containers, scanning for threats in real-time, and ensuring compliance with security standards to safeguard applications and data.",
       "6-tier": "Strategic",
