@@ -1,4 +1,5 @@
 <!doctype html>
+
 <html lang="en-us" class="pf-theme-dark">
 <head>
   <meta charset="utf-8">
@@ -41,26 +42,24 @@ function copyToClipboard(element) {
 <?php
 $string = file_get_contents("controls.json");
 $json = json_decode($string, true);
-
-function getTierColor($tier) {
-
-
-}
+$controls = array();
+foreach($json as $key => $value) {
+	array_push($controls,$key);
+	}
 
 function getControls ($area,$json) {
-
 $i=1;
 $qnum = $json[$area]['qnum'];
 $title = $json[$area]['title'];
 $control = $area;
-print "<p class='overviewWhite'>" . $json[$area]['overview'] . "</p>";
+print "<p>" . $json[$area]['overview'] . "</p>";
 print "<ul class='ks-cboxtags'>\n";
 while( $i < 9) {
   //$infoButton = '<i class="fa-solid fa-circle-info"></i>';
   $summary= $i . '-summary';
    ## If a summary in there, use it as a tooltip
   if ($json[$area][$summary] != "") {
-  $itemSummary = '&nbsp; <i class="fa-solid fa-circle-info" title="' . $json[$area][$summary] . '"></i>';
+  $itemSummary = '&nbsp; <i class="fa-solid fa-circle-info" style="display: inline-block;max-width: 100px;" title="' . $json[$area][$summary] . '"></i>';
   } else {
     $itemSummary = "";
   }
@@ -73,7 +72,6 @@ while( $i < 9) {
 print "</ul>";
 }
 ?>
-
 <div class="tab">
   <button class="tablinks" onclick="openCity(event, 'SecureInfrastructure')" id="defaultOpen">Secure Infrastructure</button>
   <button class="tablinks" onclick="openCity(event, 'SecureData')">Secure Data</button>
@@ -85,7 +83,7 @@ print "</ul>";
 </div>
 </div>
 <div class="container">
-<form action="plot.php">
+<form action="results.php">
 <fieldset>
 <!-- Tab content -->
 <div id="SecureInfrastructure" class="tabcontent">

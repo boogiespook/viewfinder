@@ -10,12 +10,12 @@
 .bigtableLeft {
 	position: absolute;
 	top: 30%;
-	left: 40%;
+	left: 50%;
 }
 
 .bigtableRight {
 	position: absolute;
-	top: 30%;
+	top: 20%;
 	left: 68%;
 	padding-right: 10px;
 }
@@ -45,6 +45,7 @@ th {
 thead {
 	th {
 		background-color: #55608f;
+		padding-left: 10px;
 	}
 }
 
@@ -52,5 +53,6 @@ tbody {
 
 	td {
 		position: relative;
+		padding-left: 10px;
 	}
 }
