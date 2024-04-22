@@ -131,8 +131,10 @@ print "<br><table><td class='cell" . getTotalRating($totalScore) ."'>Overall rat
 <?php
 foreach ($controls as $control) {
     $highest=0;	
+    $qnum = $json[$control]['qnum'];
+	$score = $controlTotal[$qnum];
 	$title = $json[$control]['title'];
-    print "<h3>$title</h3><div>";
+    print "<h3>$title <span class='cellHeader" . getRating($score) . "'>". getRating($score) . "</span></h3><div>";
     $qnum = $json[$control]['qnum'];
     $levelArray = array();
     ## Get the highest score per capability & keep the results
@@ -142,7 +144,6 @@ foreach ($controls as $control) {
         $highest++;
           }
     }
-
     $nextLevel = $highest + 1;
     if ($nextLevel < 9) {
         ## Check if there is a recommendation for the next level

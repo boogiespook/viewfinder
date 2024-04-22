@@ -429,6 +429,24 @@ input.underlined
 	font-weight: bold;
 }
 
+.cellHeaderFoundation {
+	color: #b1b0b0;
+	text-align: center;
+	font-weight: bold;
+}
+
+.cellHeaderStrategic {
+	color: #fdd171;
+	text-align: center;
+	font-weight: bold;
+}
+
+.cellHeaderAdvanced {
+	color: #2aaa04;
+	text-align: center;
+	font-weight: bold;
+}
+
 .whiteBackground {
 	background-color: #ffffff;
 	width: 100%;
