@@ -148,13 +148,16 @@ foreach ($controls as $control) {
         $nextRecommendation = $nextLevel . '-recommendation';
         $nextSummary = $nextLevel . '-summary';
         print "<h4 class=title-text>Recommendation</h4>"; 
+        print "<p>Start to work on preparing for actions concerning " . $json[$control][$nextLevel] . " (Level $nextLevel)<p>";
+        print "<p>" . $json[$control][$nextSummary] . "</p>";
+
         if ($json[$control][$nextRecommendation] != "") {
-            print "<p>" . $json[$control][$nextRecommendation] . "<p>";
+            print "<br><p>" . $json[$control][$nextRecommendation] . "<p>";
     
-        } else {
-            print "<p>Start to work on preparing for actions concerning " . $json[$control][$nextLevel] . " (Level $nextLevel)<p>";
-            print "<p>" . $json[$control][$nextSummary] . "</p>";
-        }
+        }# else {
+        #    print "<p>Start to work on preparing for actions concerning " . $json[$control][$nextLevel] . " (Level $nextLevel)<p>";
+        #    print "<p>" . $json[$control][$nextSummary] . "</p>";
+        #}
         print "<br><h4 class=title-text>Conversations to have</h4>";
         $nextConversations = $nextLevel . '-conversation';
         if ($json[$control][$nextConversations] != "") {
