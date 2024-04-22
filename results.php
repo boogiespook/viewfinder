@@ -17,7 +17,8 @@
 <script>
   $( function() {
     $( "#accordion" ).accordion({
-      heightStyle: "content"
+      heightStyle: "content",
+      collapsible: true,
     });
   } );
   </script>
