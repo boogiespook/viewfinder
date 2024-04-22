@@ -450,3 +450,9 @@ input.underlined
 	font-weight: bold;
 	font-size: large;
 }
+
+.why-what {
+    display: block;
+    color: rgb(100, 101, 102) !important;
+	font-weight: bold;
+}
