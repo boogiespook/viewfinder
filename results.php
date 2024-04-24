@@ -23,6 +23,7 @@
     });
   } );
   </script>
+
 </head>
 <body>
   <header class="pf-c-page__header">
@@ -87,7 +88,7 @@ $totalScore = 0;
 
 <div class="tab">
   <button class="tablinks" onclick="openTab(event, 'Radar')" id="defaultOpen">Radar Chart & Maturity Levels</button>
-  <button class="tablinks" onclick="openTab(event, 'NextSteps')">Next Steps</button>
+  <button class="tablinks" onclick="openTab(event, 'NextSteps')">Detailed Output</button>
 </div>
 
 <div id="Radar" class="tabcontent">
