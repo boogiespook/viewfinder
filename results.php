@@ -39,6 +39,10 @@ parse_str($_SERVER["QUERY_STRING"], $data);
 #print_r($data);
 $string = file_get_contents("controls.json");
 $json = json_decode($string, true);
+$nextSteps = array();
+$nextStepsHow = array();
+$nextDomain = array();
+
 $controls = array();
 foreach($json as $key => $value) {
 	array_push($controls,$key);
@@ -89,7 +93,7 @@ $totalScore = 0;
 <div class="tab">
   <button class="tablinks" onclick="openTab(event, 'Radar')" id="defaultOpen">Radar Chart & Maturity Levels</button>
   <button class="tablinks" onclick="openTab(event, 'DetailedOutput')">Detailed Output</button>
-  <button class="tablinks" onclick="openTab(event, 'NextSteps')">Next Steps</button>
+  <button class="tablinks" onclick="openTab(event, 'NextSteps')">Agenda</button> 
 </div>
 
 <div id="Radar" class="tabcontent">
@@ -118,6 +122,7 @@ foreach ($controls as $control) {
 	$qnum = $json[$control]['qnum'];
 	$score = $controlTotal[$qnum];
 	$totalScore += $score;
+	#print "<td><i class='fa-regular fa-" . $qnum . "'>&nbsp; &nbsp; </i>" . $title . "</td>";
 	print "<td>" . $title . "</td>";
 	print "<td class='cell" . getRating($score) . "'>" . getRating($score) . " ($score out of 36)</td>";
 	print "</tr>";
@@ -137,6 +142,7 @@ foreach ($controls as $control) {
     $qnum = $json[$control]['qnum'];
 	$score = $controlTotal[$qnum];
 	$title = $json[$control]['title'];
+	array_push($nextDomain, $title);
     print "<h3>$title <span class='cellHeader" . getRating($score) . "'>". getRating($score) . "</span></h3><div>";
 
     
@@ -161,7 +167,8 @@ foreach ($controls as $control) {
         if ($json[$control][$nextRecommendation] != "") {
             print "<br><p class=why-what>How</p>";
             print "<p>" . $json[$control][$nextRecommendation] . "<p>";
-    
+			array_push($nextSteps,$json[$control][$nextLevel]);
+			array_push($nextStepsHow,$json[$control][$nextSummary]);
         }# else {
         #    print "<p>Start to work on preparing for actions concerning " . $json[$control][$nextLevel] . " (Level $nextLevel)<p>";
         #    print "<p>" . $json[$control][$nextSummary] . "</p>";
@@ -212,9 +219,75 @@ if ($levelArray) {
 <!-- Next Steps -->
 </div>
 <div id="NextSteps" class="tabcontent">
-<h1>Next Steps</h1>
+<div class="nextStepsPage">
+<table class="paleBlueRows">
+<thead>
+<tr>
+<th>Time</th>
+<th>Agenda</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>09:00-09:15</td>
+<td>Welcome &amp; Introductions</td>
+</tr>
+<tr>
+<td>09:15-10:00</td>
+<td><?php echo $nextSteps[0];  ?></td>
+</tr>
+<tr>
+<td>10:00-10:45</td>
+<td><?php echo $nextSteps[1];  ?></td>
+</tr>
+<tr>
+<td class="agendaBreak">10:45-11:00</td>
+<td class="agendaBreak">Break</td>
+</tr>
+<tr>
+<td>11:00-11:45</td>
+<td><?php echo $nextSteps[2];  ?></td>
+</tr>
+<tr>
+<td>11:45-12:30</td>
+<td><?php echo $nextSteps[3];  ?></td>
+</tr>
+<tr>
+<td class="agendaBreak">12:30-13:00</td>
+<td class="agendaBreak">Lunch</td>
+</tr>
+<tr>
+<td>13:00-13:45</td>
+<td><?php echo $nextSteps[4];  ?></td>
+</tr>
+<tr>
+<td>13:45-14:30</td>
+<td><?php echo $nextSteps[5];  ?></td>
+</tr>
+<tr>
+<td class="agendaBreak">14:30-14:45</td>
+<td class="agendaBreak">Break</td>
+</tr>
+<tr>
+<td>14:45-15:30</td>
+<td><?php echo $nextSteps[6];  ?></td>
+</tr>
+<tr>
+<td>15:30-16:00</td>
+<td>Wrap Up &amp; Next Steps</td>
+</tr>
+</tbody>
+</table>
 
-
+<?php
+#$ii = 0;
+#foreach ($nextSteps as $step) {
+#   print "<dt> " . $nextDomain[$ii] . " - $step </dt>";
+#   #print "<dd>" . $nextStepsHow[$ii] . "</dd>";
+#   $ii++;
+#}
+?>
+</div>
 </div>
 </div>
 

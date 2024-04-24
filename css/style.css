@@ -409,7 +409,7 @@ input.underlined
 }
 
 .cellFoundation {
-	background-color: #4291f8;
+	background-color: #9ec7fc;
 	color: #070707;
 	text-align: center;
 	font-weight: bold;
@@ -417,7 +417,7 @@ input.underlined
 }
 
 .cellStrategic {
-	background-color: #0f01ca;
+	background-color: #0d60f8;
 	color: #ffffff;
 	text-align: center;
 	font-weight: bold;
@@ -477,3 +477,103 @@ input.underlined
     color: rgb(100, 101, 102) !important;
 	font-weight: bold;
 }
+
+.dl-blurbs {
+	display: grid;
+  }
+
+  @media (min-width: 768px) {
+	.dl-blurbs {
+	  gap: 2vw;
+	}
+  }
+  
+  /* LIST */
+dl {
+	counter-reset: count;
+	padding-left: 4vw;
+	padding-right: 4vw;
+	margin: 0;
+  }
+  @media (min-width: 768px) {
+	dl {
+	  padding-left: 2vw;
+	}
+  }
+  @media (min-width: 1024px) {
+	dl {
+	  padding-top: 3vw;
+	  padding-bottom: 3vw;
+	}
+  }
+  
+  dl + dl {
+	counter-reset: counter 4;
+  }
+  
+  dt {
+	counter-increment: count;
+	color: #4291f8;
+	font-family: "Montserrat", sans-serif;
+	font-size: 1vw;
+  }
+  
+  dt::before {
+	content: counter(count, decimal-leading-zero);
+	color: rgb(3, 96, 236);
+	margin-left: 0.5vw;
+	padding-right: 12px;
+	font-weight: bold;
+  }
+  
+  dd {
+	margin-left: 5vw;
+	margin-bottom: 2vh;
+  }
+
+  .nextStepsPage {
+	padding-top: 10px;
+	padding-left: 10px;
+	min-height: 500px;
+  }
+
+  table.paleBlueRows {
+	height: 200px;
+	text-align: center;
+	border-collapse: collapse;
+  }
+  table.paleBlueRows td, table.paleBlueRows th {
+	padding: 3px 2px;
+  }
+  table.paleBlueRows tbody td {
+	font-size: 15px;
+  }
+
+  table.paleBlueRows thead {
+	background: #0B6FA4;
+  }
+  table.paleBlueRows thead th {
+	font-size: 17px;
+	font-weight: bold;
+	color: #FFFFFF;
+	text-align: center;
+  }
+  table.paleBlueRows thead th:first-child {
+	border-left: none;
+  }
+  
+  table.paleBlueRows tfoot {
+	font-size: 14px;
+	font-weight: bold;
+	color: #333333;
+	background: #D0E4F5;
+	border-top: 3px solid #444444;
+  }
+  table.paleBlueRows tfoot td {
+	font-size: 14px;
+  }
+
+  .agendaBreak {
+	background-color: #008000;
+	color:#ddd;
+  }
