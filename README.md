@@ -20,7 +20,7 @@ You will need to be logged in to the Red Hat Registry (registry.access.redhat.co
 Enter your credentials and you will be able to pull the required images down to build the application.
 You can read more about this here: https://access.redhat.com/RegistryAuthentication
 
-Followed by.
+Followed by (optional)
 
 ``` podman build -t viewfinder:latest . ```
 
