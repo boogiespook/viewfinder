@@ -165,7 +165,7 @@ foreach ($controls as $control) {
         #    print "<p>Start to work on preparing for actions concerning " . $json[$control][$nextLevel] . " (Level $nextLevel)<p>";
         #    print "<p>" . $json[$control][$nextSummary] . "</p>";
         #}
-        print "<br><h4 class=title-text>Conversations to have</h4>";
+        print "<br><h4 class=why-what>Conversations to have</h4>";
         $nextConversations = $nextLevel . '-conversation';
         if ($json[$control][$nextConversations] != "") {
             print $json[$control][$nextConversations];
@@ -183,7 +183,7 @@ if ($levelArray) {
 	$allLevels = range(1,max($levelArray));
 	$missing = array_diff($allLevels,$levelArray);
 	if ($missing) {
-		print "<br><br><h4 class=title-text>Skipped Level(s)</h4>";
+		print "<br><br><h4 class=why-what>Skipped Level(s)</h4>";
 		foreach ($missing as $notthere) {
 			$skippedRecommendation = $notthere . '-recommendation';
 			print "Level $notthere - ";
