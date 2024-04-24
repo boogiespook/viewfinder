@@ -29,12 +29,13 @@ table {
 	width: 500px;
 	border-collapse: collapse;
 	overflow: hidden;
+	border-radius: 5px;
 }
 
 th,
 td {
-	padding: 15px;
 	background-color: rgba(255,255,255,0.2);
+	
 }
 
 th {
@@ -44,8 +45,8 @@ th {
 
 thead {
 	th {
-		background-color: #55608f;
 		padding-left: 10px;
+		color:darkslategrey;
 	}
 }
 
@@ -54,5 +55,11 @@ tbody {
 	td {
 		position: relative;
 		padding-left: 10px;
+		
 	}
+}
+
+.spacedTable {
+	border-collapse:separate;
+	border-spacing:0 10px;
 }

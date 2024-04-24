@@ -88,7 +88,8 @@ $totalScore = 0;
 
 <div class="tab">
   <button class="tablinks" onclick="openTab(event, 'Radar')" id="defaultOpen">Radar Chart & Maturity Levels</button>
-  <button class="tablinks" onclick="openTab(event, 'NextSteps')">Detailed Output</button>
+  <button class="tablinks" onclick="openTab(event, 'DetailedOutput')">Detailed Output</button>
+  <button class="tablinks" onclick="openTab(event, 'NextSteps')">Next Steps</button>
 </div>
 
 <div id="Radar" class="tabcontent">
@@ -98,7 +99,7 @@ $totalScore = 0;
 </div>
 <div class="bigtableLeft">
 
-<table>
+<table class="spacedTable">
 	<thead>
 		<tr>
 			<th>Control</th>
@@ -126,8 +127,8 @@ print "<br><table><td class='cell" . getTotalRating($totalScore) ."'>Overall rat
 ?>
 </div>
 </div>
-
-<div id="NextSteps" class="tabcontent">
+<!-- Detailed Output -->
+<div id="DetailedOutput" class="tabcontent">
 
 <div id="accordion">
 <?php
@@ -205,10 +206,16 @@ if ($levelArray) {
 ?>
 
 </div>
+<!-- End of Detailed Output -->
+
+
+<!-- Next Steps -->
+</div>
+<div id="NextSteps" class="tabcontent">
+<h1>Next Steps</h1>
+
 
 </div>
-
-
 </div>
 
 <script src="js/radarChart.js"></script>	
