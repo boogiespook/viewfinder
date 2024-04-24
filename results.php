@@ -19,6 +19,7 @@
     $( "#accordion" ).accordion({
       heightStyle: "content",
       collapsible: true,
+      active : 'none'
     });
   } );
   </script>
@@ -135,6 +136,8 @@ foreach ($controls as $control) {
 	$score = $controlTotal[$qnum];
 	$title = $json[$control]['title'];
     print "<h3>$title <span class='cellHeader" . getRating($score) . "'>". getRating($score) . "</span></h3><div>";
+
+    
     $qnum = $json[$control]['qnum'];
     $levelArray = array();
     ## Get the highest score per capability & keep the results
