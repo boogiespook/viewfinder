@@ -12,21 +12,35 @@
       <link rel="stylesheet" href="css/tab.css" />
       <link rel="stylesheet" href="css/patternfly.css" />
       <link rel="stylesheet" href="css/patternfly-addons.css" />
+      <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+      
+  <script src="https://kit.fontawesome.com/8a8c57f9cf.js" crossorigin="anonymous"></script>
 
-      <script src="https://kit.fontawesome.com/8a8c57f9cf.js" crossorigin="anonymous"></script>
-<script type="text/javascript" >
-function copyToClipboard(element) {
-  var $temp = $("<input>");
-  $("body").append($temp);
-  $temp.val($(element).text()).select();
-  document.execCommand("copy");
-  $temp.remove();
-}
+  <script>
+	//style all the dialogue
+	$( function() {
+		$(".dialog_help").dialog({
+			modal: true,
+			autoOpen: false,
+			width: 500,
+			height: 300,
+			dialogClass: 'ui-dialog-osx'
+		});
+	});
+	
+	//opens the appropriate dialog
+	$( function() {
+		$(".opener").click(function () {
+			//takes the ID of appropriate dialogue
+			var id = $(this).data('id');
+		   //open dialogue
+			$(id).dialog("open");
+		});
+	});
 </script>
 
-
-
-</head>
+    </head>
 
 <body>
   <header class="pf-c-page__header">
@@ -50,6 +64,7 @@ foreach($json as $key => $value) {
 function getControls ($area,$json) {
 $i=1;
 $qnum = $json[$area]['qnum'];
+$infoId = $qnum . "-" . $i;
 $title = $json[$area]['title'];
 $control = $area;
 print "<p>" . $json[$area]['overview'] . "</p>";
@@ -59,6 +74,10 @@ while( $i < 9) {
   $summary= $i . '-summary';
    ## If a summary in there, use it as a tooltip
   if ($json[$area][$summary] != "") {
+  
+  ## Construct the info button
+  #$itemSummary = '<p>This is the first paragraph. <em class="icon-question opener" data-id="' . $infoId . '" style="cursor: pointer;"> Help 1</em></p><div class="dialog_help" id="' . $infoId . '" title="Dialog 1 title"> <p>Dialog Help Content One.</p>	</div>';
+
   $itemSummary = '&nbsp; <i class="fa-solid fa-circle-info" style="display: inline-block;max-width: 100px;" title="' . $json[$area][$summary] . '"></i>';
   } else {
     $itemSummary = "";
@@ -73,72 +92,33 @@ print "</ul>";
 }
 ?>
 <div class="tab">
-  <button class="tablinks" onclick="openCity(event, 'SecureInfrastructure')" id="defaultOpen">Secure Infrastructure</button>
-  <button class="tablinks" onclick="openCity(event, 'SecureData')">Secure Data</button>
-  <button class="tablinks" onclick="openCity(event, 'SecureIdentity')">Secure Identity</button>
-  <button class="tablinks" onclick="openCity(event, 'SecureApplication')">Secure Application</button>
-  <button class="tablinks" onclick="openCity(event, 'SecureNetwork')">Secure Network</button>
-  <button class="tablinks" onclick="openCity(event, 'SecureRecovery')">Secure Recovery</button>
-  <button class="tablinks" onclick="openCity(event, 'SecureOperations')">Secure Operations</button>
+<?php
+$first=0;
+foreach ($controls as $control) {
+	$title = $json[$control]['title'];
+  if ($first < 2) {
+	  print '<button class="tablinks" onclick="openCity(event, \'' . $control . '\')" id="defaultOpen">' . $title .'</button>';
+  } else {
+	  print '<button class="tablinks" onclick="openCity(event, \'' . $control . '\')">' . $title .'</button>';
+
+  }
+$first++;
+}
+?>  
+
 </div>
 </div>
 <div class="container">
 <form action="results.php">
 <fieldset>
 <!-- Tab content -->
-<div id="SecureInfrastructure" class="tabcontent">
 <?php
-getControls("SecureInfrastructure",$json)
-
-#getCriteria("1",$db);
+foreach ($controls as $control) {
+print '<div id="' . $control . '" class="tabcontent">';
+getControls($control,$json);
+print '</div>';
+}
 ?>
-</div>
-
-<div id="SecureData" class="tabcontent">
-<?php
-getControls("SecureData",$json)
-
-#getCriteria("2",$db);
-?></div>
-
-<div id="SecureIdentity" class="tabcontent">
-<?php
-#getCriteria("3",$db);
-getControls("SecureIdentity",$json)
-
-?>
-</div>
-
-<div id="SecureApplication" class="tabcontent">
-<?php
-#getCriteria("4",$db);
-getControls("SecureApplication",$json)
-
-?></div>
-
-<div id="SecureNetwork" class="tabcontent">
-<?php
-#getCriteria("5",$db);
-getControls("SecureNetwork",$json)
-
-?>
-</div>
-
-<div id="SecureRecovery" class="tabcontent">
-<?php
-#getCriteria("6",$db);
-getControls("SecureRecovery",$json)
-
-?>
-</div>
-
-<div id="SecureOperations" class="tabcontent">
-<?php
-#getCriteria("7",$db);
-getControls("SecureOperations",$json)
-
-?>
-</div>
   </fieldset>
   <br>
 <input class='ui-button ui-widget ui-corner-all' id='submitButton' type='submit' name='Submit' value='Submit'>

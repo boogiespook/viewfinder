@@ -1,0 +1,220 @@
+
+
+/*--------------------------------------------------------------------- File Name: responsive.css ---------------------------------------------------------------------*/
+
+
+/*------------------------------------------------------------------- 991px x 768px ---------------------------------------------------------------------*/
+
+@media (min-width: 1200px) and (max-width: 1500px) {
+    .projects::after {
+        width: 262px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .testimonial_Carousel .test_box p {
+        font-size: 16px;
+        padding: 29px;
+    }
+    .text-bg h1 {
+        font-size: 36px;
+        line-height: 59px;
+    }
+    .projects::after {
+        background: transparent;
+    }
+    .copyright::after {
+        background: transparent;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .projects::after {
+        background: transparent;
+    }
+    .copyright::after {
+        background: transparent;
+    }
+    .navigation.navbar-dark .navbar-nav .nav-link {
+        padding: 0 14px;
+    }
+    .text-bg h1 {
+        padding-top: 0px;
+        font-size: 28px;
+        line-height: 38px;
+    }
+    .text-bg {
+        padding-right: 108px;
+    }
+    .banner_main {
+        padding: 30px 0 190px 0;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+    .head_top {
+        background: #0891f8;
+    }
+    .mean-container .mean-bar {
+        margin-top: 0px;
+    }
+    .text-bg h1 {
+        font-size: 50px;
+    }
+    .text-bg {
+        padding-right: 0;
+    }
+    .text-img {
+        padding-top: 30px;
+    }
+    .main_form {
+        margin: 0;
+    }
+    .Testimonial {
+        background: #0891f8;
+    }
+    .Testimonial_box {
+        padding: 20px;
+    }
+    .Testimonial_box p {
+        padding-right: 0px;
+    }
+    .Testimonial_box i::after {
+        border: inherit;
+    }
+    .cont h3 {
+        font-size: 34px;
+        line-height: 52px;
+    }
+    .navigation.navbar {
+        float: right;
+        display: inherit !important;
+        padding: 0;
+        width: 100%;
+    }
+    .navigation .navbar-collapse {
+        background: #fff;
+        padding: 20px;
+        margin-top: 46px;
+        position: absolute;
+        width: 100%;
+        margin-right: 20px;
+        z-index: 999;
+    }
+    .navigation.navbar-dark .navbar-nav .nav-link {
+        padding: 10px 0;
+        color: #000;
+    }
+    .navigation.navbar-dark .navbar-toggler {
+        border: inherit;
+        float: right;
+        padding-top: 6px;
+    }
+    .navigation.navbar-dark .navbar-toggler-icon {
+        background: url(../images/menu_icon.png);
+        background-repeat: no-repeat;
+    }
+    .projects::after {
+        background: transparent;
+    }
+    .copyright::after {
+        background: transparent;
+    }
+}
+
+@media (max-width: 575px) {
+    .head_top {
+        background: #0891f8;
+    }
+    .header {
+        padding: 12px 0px 0px 0px;
+    }
+    .logo {
+        text-align: center !important;
+        padding-bottom: 6px;
+        float: left;
+    }
+    .text-bg h1 {
+        font-size: 33px;
+        line-height: 51px;
+    }
+    .text-bg {
+        padding-right: 0;
+    }
+    .text-img {
+        padding-top: 30px;
+    }
+    .titlepage h2 {
+        font-size: 35px;
+        line-height: 50px;
+    }
+    .business .titlepage span {
+        font-size: 23px;
+        line-height: 28px;
+    }
+    .banner_main {
+        padding: 50px 0;
+    }
+    .projects::after {
+        background: transparent;
+    }
+    .Testimonial {
+        background: #0891f8;
+    }
+    .Testimonial_box {
+        padding: 20px;
+    }
+    .Testimonial_box p {
+        padding-right: 0px;
+    }
+    .Testimonial_box i::after {
+        border: inherit;
+    }
+    .cont h3 {
+        font-size: 30px;
+        line-height: 45px;
+    }
+    .multi {
+        font-size: 33px;
+    }
+    .main_form {
+        padding: 25px;
+        margin: 0px 0px;
+    }
+    .copyright::after {
+        background: transparent;
+    }
+    .navigation.navbar {
+        float: right;
+        display: inherit !important;
+        padding: 0;
+        width: 100%;
+        margin-top: -45px;
+    }
+    .navigation .navbar-collapse {
+        background: #fff;
+        padding: 20px;
+        margin-top: 46px;
+        position: absolute;
+        width: 100%;
+        margin-right: 20px;
+        z-index: 999;
+    }
+    .navigation.navbar-dark .navbar-nav .nav-link {
+        padding: 10px 0;
+        color: #000;
+    }
+    .navigation.navbar-dark .navbar-toggler {
+        float: right;
+        margin-right: 2px;
+        border: inherit;
+    }
+    .testimonial_box {
+        padding: 0px 19px 40px 20px;
+    }
+    .navigation.navbar-dark .navbar-toggler-icon {
+        background: url(../images/menu_icon.png);
+        background-repeat: no-repeat;
+    }
+}
+
