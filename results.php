@@ -35,6 +35,7 @@
 </header>
 <?php
 
+$urlData = "./report/index.php?" . $_SERVER["QUERY_STRING"];
 parse_str($_SERVER["QUERY_STRING"], $data);
 #print_r($data);
 $string = file_get_contents("controls.json");
@@ -92,8 +93,10 @@ $totalScore = 0;
 
 <div class="tab">
   <button class="tablinks" onclick="openTab(event, 'Radar')" id="defaultOpen">Radar Chart & Maturity Levels</button>
-  <button class="tablinks" onclick="openTab(event, 'DetailedOutput')">Detailed Output</button>
+  <button class="tablinks" onclick="openTab(event, 'DetailedOutput')">Recommendations</button>
   <button class="tablinks" onclick="openTab(event, 'NextSteps')">Agenda</button> 
+  <button class="tablinks""><a href="<?php print $urlData; ?>" target= _blank>Detailed Output</a></button> 
+
 </div>
 
 <div id="Radar" class="tabcontent">
@@ -279,14 +282,6 @@ if ($levelArray) {
 </tbody>
 </table>
 
-<?php
-#$ii = 0;
-#foreach ($nextSteps as $step) {
-#   print "<dt> " . $nextDomain[$ii] . " - $step </dt>";
-#   #print "<dd>" . $nextStepsHow[$ii] . "</dd>";
-#   $ii++;
-#}
-?>
 </div>
 </div>
 </div>
