@@ -1,0 +1,491 @@
+{
+
+  "Domain1" : {
+    "overview" : "Domain1 refers to XXXXXX",
+    "qnum" : "1",
+    "title" : "Domain1",
+
+    "1": "Domain 1 - Capability 1",
+    "1-summary": "Summary for Capability 1",
+    "1-tier": "Foundation",
+    "1-points": "1",
+    "1-conversation" : "Conversation notes",
+    "1-recommendation" : "Recommendation",
+
+
+    "2": "Domain 1 - Capability 2",
+    "2-summary": "Summary for Capability 2",
+    "2-tier": "Foundation",
+    "2-points": "2",
+    "2-conversation" : "Conversation notes",
+    "2-recommendation" : "Recommendation",
+
+
+    "3": "Domain 1 - Capability 3",
+    "3-summary": "Summary for Capability 3",
+    "3-tier": "Foundation",
+    "3-points": "3",
+    "3-conversation" : "Conversation notes",
+    "3-recommendation" : "Recommendation",
+
+
+    "4": "Domain 1 - Capability 4",
+    "4-summary": "Summary for Capability 4",
+    "4-tier": "Strategic",
+    "4-points": "4",
+    "4-conversation" : "Conversation notes",
+    "4-recommendation" : "Recommendation",
+
+
+    "5": "Domain 1 - Capability 5",
+    "5-summary": "Summary for Capability 5",
+    "5-tier": "Strategic",
+    "5-points": "5",
+    "5-conversation" : "Conversation notes",
+    "5-recommendation" : "Recommendation",
+
+
+    "6": "Domain 1 - Capability 6",
+    "6-summary": "Summary for Capability 6",
+    "6-tier": "Strategic",
+    "6-points": "6",
+    "6-conversation" : "Conversation notes",
+    "6-recommendation" : "Recommendation",
+
+
+    "7": "Domain 1 - Capability 7",
+    "7-summary": "Summary for Capability 7",
+    "7-tier": "Advanced",
+    "7-points": "7",
+    "7-conversation" : "Conversation notes",
+    "7-recommendation" : "Recommendation",
+
+
+    "8": "Domain 1 - Capability 8",
+    "8-summary": "Summary for Capability 8",
+    "8-tier": "Advanced",
+    "8-points": "8",
+    "8-conversation" : "Conversation notes",
+    "8-recommendation" : "Recommendation"
+
+},
+
+  "Domain2" : {
+    "overview" : "Domain2 refers to XXXXXX",
+    "qnum" : "2",
+    "title" : "Domain2",
+
+    "1": "Domain 2 - Capability 1",
+    "1-summary": "Summary for Capability 1",
+    "1-tier": "Foundation",
+    "1-points": "1",
+    "1-conversation" : "Conversation notes",
+    "1-recommendation" : "Recommendation",
+
+
+    "2": "Domain 2 - Capability 2",
+    "2-summary": "Summary for Capability 2",
+    "2-tier": "Foundation",
+    "2-points": "2",
+    "2-conversation" : "Conversation notes",
+    "2-recommendation" : "Recommendation",
+
+
+    "3": "Domain 2 - Capability 3",
+    "3-summary": "Summary for Capability 3",
+    "3-tier": "Foundation",
+    "3-points": "3",
+    "3-conversation" : "Conversation notes",
+    "3-recommendation" : "Recommendation",
+
+
+    "4": "Domain 2 - Capability 4",
+    "4-summary": "Summary for Capability 4",
+    "4-tier": "Strategic",
+    "4-points": "4",
+    "4-conversation" : "Conversation notes",
+    "4-recommendation" : "Recommendation",
+
+
+    "5": "Domain 2 - Capability 5",
+    "5-summary": "Summary for Capability 5",
+    "5-tier": "Strategic",
+    "5-points": "5",
+    "5-conversation" : "Conversation notes",
+    "5-recommendation" : "Recommendation",
+
+
+    "6": "Domain 2 - Capability 6",
+    "6-summary": "Summary for Capability 6",
+    "6-tier": "Strategic",
+    "6-points": "6",
+    "6-conversation" : "Conversation notes",
+    "6-recommendation" : "Recommendation",
+
+
+    "7": "Domain 2 - Capability 7",
+    "7-summary": "Summary for Capability 7",
+    "7-tier": "Advanced",
+    "7-points": "7",
+    "7-conversation" : "Conversation notes",
+    "7-recommendation" : "Recommendation",
+
+
+    "8": "Domain 2 - Capability 8",
+    "8-summary": "Summary for Capability 8",
+    "8-tier": "Advanced",
+    "8-points": "8",
+    "8-conversation" : "Conversation notes",
+    "8-recommendation" : "Recommendation"
+
+},
+
+  "Domain3" : {
+    "overview" : "Domain3 refers to XXXXXX",
+    "qnum" : "3",
+    "title" : "Domain3",
+
+    "1": "Domain 3 - Capability 1",
+    "1-summary": "Summary for Capability 1",
+    "1-tier": "Foundation",
+    "1-points": "1",
+    "1-conversation" : "Conversation notes",
+    "1-recommendation" : "Recommendation",
+
+
+    "2": "Domain 3 - Capability 2",
+    "2-summary": "Summary for Capability 2",
+    "2-tier": "Foundation",
+    "2-points": "2",
+    "2-conversation" : "Conversation notes",
+    "2-recommendation" : "Recommendation",
+
+
+    "3": "Domain 3 - Capability 3",
+    "3-summary": "Summary for Capability 3",
+    "3-tier": "Foundation",
+    "3-points": "3",
+    "3-conversation" : "Conversation notes",
+    "3-recommendation" : "Recommendation",
+
+
+    "4": "Domain 3 - Capability 4",
+    "4-summary": "Summary for Capability 4",
+    "4-tier": "Strategic",
+    "4-points": "4",
+    "4-conversation" : "Conversation notes",
+    "4-recommendation" : "Recommendation",
+
+
+    "5": "Domain 3 - Capability 5",
+    "5-summary": "Summary for Capability 5",
+    "5-tier": "Strategic",
+    "5-points": "5",
+    "5-conversation" : "Conversation notes",
+    "5-recommendation" : "Recommendation",
+
+
+    "6": "Domain 3 - Capability 6",
+    "6-summary": "Summary for Capability 6",
+    "6-tier": "Strategic",
+    "6-points": "6",
+    "6-conversation" : "Conversation notes",
+    "6-recommendation" : "Recommendation",
+
+
+    "7": "Domain 3 - Capability 7",
+    "7-summary": "Summary for Capability 7",
+    "7-tier": "Advanced",
+    "7-points": "7",
+    "7-conversation" : "Conversation notes",
+    "7-recommendation" : "Recommendation",
+
+
+    "8": "Domain 3 - Capability 8",
+    "8-summary": "Summary for Capability 8",
+    "8-tier": "Advanced",
+    "8-points": "8",
+    "8-conversation" : "Conversation notes",
+    "8-recommendation" : "Recommendation"
+
+},
+
+  "Domain4" : {
+    "overview" : "Domain4 refers to XXXXXX",
+    "qnum" : "4",
+    "title" : "Domain4",
+
+    "1": "Domain 4 - Capability 1",
+    "1-summary": "Summary for Capability 1",
+    "1-tier": "Foundation",
+    "1-points": "1",
+    "1-conversation" : "Conversation notes",
+    "1-recommendation" : "Recommendation",
+
+
+    "2": "Domain 4 - Capability 2",
+    "2-summary": "Summary for Capability 2",
+    "2-tier": "Foundation",
+    "2-points": "2",
+    "2-conversation" : "Conversation notes",
+    "2-recommendation" : "Recommendation",
+
+
+    "3": "Domain 4 - Capability 3",
+    "3-summary": "Summary for Capability 3",
+    "3-tier": "Foundation",
+    "3-points": "3",
+    "3-conversation" : "Conversation notes",
+    "3-recommendation" : "Recommendation",
+
+
+    "4": "Domain 4 - Capability 4",
+    "4-summary": "Summary for Capability 4",
+    "4-tier": "Strategic",
+    "4-points": "4",
+    "4-conversation" : "Conversation notes",
+    "4-recommendation" : "Recommendation",
+
+
+    "5": "Domain 4 - Capability 5",
+    "5-summary": "Summary for Capability 5",
+    "5-tier": "Strategic",
+    "5-points": "5",
+    "5-conversation" : "Conversation notes",
+    "5-recommendation" : "Recommendation",
+
+
+    "6": "Domain 4 - Capability 6",
+    "6-summary": "Summary for Capability 6",
+    "6-tier": "Strategic",
+    "6-points": "6",
+    "6-conversation" : "Conversation notes",
+    "6-recommendation" : "Recommendation",
+
+
+    "7": "Domain 4 - Capability 7",
+    "7-summary": "Summary for Capability 7",
+    "7-tier": "Advanced",
+    "7-points": "7",
+    "7-conversation" : "Conversation notes",
+    "7-recommendation" : "Recommendation",
+
+
+    "8": "Domain 4 - Capability 8",
+    "8-summary": "Summary for Capability 8",
+    "8-tier": "Advanced",
+    "8-points": "8",
+    "8-conversation" : "Conversation notes",
+    "8-recommendation" : "Recommendation"
+
+},
+
+  "Domain5" : {
+    "overview" : "Domain5 refers to XXXXXX",
+    "qnum" : "5",
+    "title" : "Domain5",
+
+    "1": "Domain 5 - Capability 1",
+    "1-summary": "Summary for Capability 1",
+    "1-tier": "Foundation",
+    "1-points": "1",
+    "1-conversation" : "Conversation notes",
+    "1-recommendation" : "Recommendation",
+
+
+    "2": "Domain 5 - Capability 2",
+    "2-summary": "Summary for Capability 2",
+    "2-tier": "Foundation",
+    "2-points": "2",
+    "2-conversation" : "Conversation notes",
+    "2-recommendation" : "Recommendation",
+
+
+    "3": "Domain 5 - Capability 3",
+    "3-summary": "Summary for Capability 3",
+    "3-tier": "Foundation",
+    "3-points": "3",
+    "3-conversation" : "Conversation notes",
+    "3-recommendation" : "Recommendation",
+
+
+    "4": "Domain 5 - Capability 4",
+    "4-summary": "Summary for Capability 4",
+    "4-tier": "Strategic",
+    "4-points": "4",
+    "4-conversation" : "Conversation notes",
+    "4-recommendation" : "Recommendation",
+
+
+    "5": "Domain 5 - Capability 5",
+    "5-summary": "Summary for Capability 5",
+    "5-tier": "Strategic",
+    "5-points": "5",
+    "5-conversation" : "Conversation notes",
+    "5-recommendation" : "Recommendation",
+
+
+    "6": "Domain 5 - Capability 6",
+    "6-summary": "Summary for Capability 6",
+    "6-tier": "Strategic",
+    "6-points": "6",
+    "6-conversation" : "Conversation notes",
+    "6-recommendation" : "Recommendation",
+
+
+    "7": "Domain 5 - Capability 7",
+    "7-summary": "Summary for Capability 7",
+    "7-tier": "Advanced",
+    "7-points": "7",
+    "7-conversation" : "Conversation notes",
+    "7-recommendation" : "Recommendation",
+
+
+    "8": "Domain 5 - Capability 8",
+    "8-summary": "Summary for Capability 8",
+    "8-tier": "Advanced",
+    "8-points": "8",
+    "8-conversation" : "Conversation notes",
+    "8-recommendation" : "Recommendation"
+
+},
+
+  "Domain6" : {
+    "overview" : "Domain6 refers to XXXXXX",
+    "qnum" : "6",
+    "title" : "Domain6",
+
+    "1": "Domain 6 - Capability 1",
+    "1-summary": "Summary for Capability 1",
+    "1-tier": "Foundation",
+    "1-points": "1",
+    "1-conversation" : "Conversation notes",
+    "1-recommendation" : "Recommendation",
+
+
+    "2": "Domain 6 - Capability 2",
+    "2-summary": "Summary for Capability 2",
+    "2-tier": "Foundation",
+    "2-points": "2",
+    "2-conversation" : "Conversation notes",
+    "2-recommendation" : "Recommendation",
+
+
+    "3": "Domain 6 - Capability 3",
+    "3-summary": "Summary for Capability 3",
+    "3-tier": "Foundation",
+    "3-points": "3",
+    "3-conversation" : "Conversation notes",
+    "3-recommendation" : "Recommendation",
+
+
+    "4": "Domain 6 - Capability 4",
+    "4-summary": "Summary for Capability 4",
+    "4-tier": "Strategic",
+    "4-points": "4",
+    "4-conversation" : "Conversation notes",
+    "4-recommendation" : "Recommendation",
+
+
+    "5": "Domain 6 - Capability 5",
+    "5-summary": "Summary for Capability 5",
+    "5-tier": "Strategic",
+    "5-points": "5",
+    "5-conversation" : "Conversation notes",
+    "5-recommendation" : "Recommendation",
+
+
+    "6": "Domain 6 - Capability 6",
+    "6-summary": "Summary for Capability 6",
+    "6-tier": "Strategic",
+    "6-points": "6",
+    "6-conversation" : "Conversation notes",
+    "6-recommendation" : "Recommendation",
+
+
+    "7": "Domain 6 - Capability 7",
+    "7-summary": "Summary for Capability 7",
+    "7-tier": "Advanced",
+    "7-points": "7",
+    "7-conversation" : "Conversation notes",
+    "7-recommendation" : "Recommendation",
+
+
+    "8": "Domain 6 - Capability 8",
+    "8-summary": "Summary for Capability 8",
+    "8-tier": "Advanced",
+    "8-points": "8",
+    "8-conversation" : "Conversation notes",
+    "8-recommendation" : "Recommendation"
+
+},
+
+  "Domain7" : {
+    "overview" : "Domain7 refers to XXXXXX",
+    "qnum" : "7",
+    "title" : "Domain7",
+
+    "1": "Domain 7 - Capability 1",
+    "1-summary": "Summary for Capability 1",
+    "1-tier": "Foundation",
+    "1-points": "1",
+    "1-conversation" : "Conversation notes",
+    "1-recommendation" : "Recommendation",
+
+
+    "2": "Domain 7 - Capability 2",
+    "2-summary": "Summary for Capability 2",
+    "2-tier": "Foundation",
+    "2-points": "2",
+    "2-conversation" : "Conversation notes",
+    "2-recommendation" : "Recommendation",
+
+
+    "3": "Domain 7 - Capability 3",
+    "3-summary": "Summary for Capability 3",
+    "3-tier": "Foundation",
+    "3-points": "3",
+    "3-conversation" : "Conversation notes",
+    "3-recommendation" : "Recommendation",
+
+
+    "4": "Domain 7 - Capability 4",
+    "4-summary": "Summary for Capability 4",
+    "4-tier": "Strategic",
+    "4-points": "4",
+    "4-conversation" : "Conversation notes",
+    "4-recommendation" : "Recommendation",
+
+
+    "5": "Domain 7 - Capability 5",
+    "5-summary": "Summary for Capability 5",
+    "5-tier": "Strategic",
+    "5-points": "5",
+    "5-conversation" : "Conversation notes",
+    "5-recommendation" : "Recommendation",
+
+
+    "6": "Domain 7 - Capability 6",
+    "6-summary": "Summary for Capability 6",
+    "6-tier": "Strategic",
+    "6-points": "6",
+    "6-conversation" : "Conversation notes",
+    "6-recommendation" : "Recommendation",
+
+
+    "7": "Domain 7 - Capability 7",
+    "7-summary": "Summary for Capability 7",
+    "7-tier": "Advanced",
+    "7-points": "7",
+    "7-conversation" : "Conversation notes",
+    "7-recommendation" : "Recommendation",
+
+
+    "8": "Domain 7 - Capability 8",
+    "8-summary": "Summary for Capability 8",
+    "8-tier": "Advanced",
+    "8-points": "8",
+    "8-conversation" : "Conversation notes",
+    "8-recommendation" : "Recommendation"
+}
+}
