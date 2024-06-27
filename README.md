@@ -14,6 +14,7 @@ The cd to the code directory
 ``` cd viewfinder ```
 
 You will need to be logged in to the Red Hat Registry (registry.access.redhat.com). 
+(this could be optional)
 
 ``` podman login registry.access.redhat.com ```
 
