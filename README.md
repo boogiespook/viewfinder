@@ -79,3 +79,5 @@ If you would just like the image, it's available on quay.io:
 
 If you would like to contribute to this project, please feel free to fork the repo.  All PRs are gratefully received!
 
+
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/boogiespook/viewfinder/badge)](https://scorecard.dev/viewer/?uri=github.com/boogiespook/viewfinder)
