@@ -300,16 +300,26 @@ if ($levelArray) {
 
 <?php
 if (isset($_REQUEST['framework'])) {
+	$stringFrameworks = file_get_contents("compliance.json");
+	$jsonFrameworks = json_decode($stringFrameworks, true);
+
 $frameworkCount = count($_REQUEST['framework']);
 for ($i = 0; $i < $frameworkCount; $i++) {
-print "<br><div class='niceList'>";
+	foreach ($jsonFrameworks as $framework) {
+		if ($framework['name'] == $_REQUEST['framework'][$i]) {
+        $linkFile = $framework['link'];
+		print "<br><div class='niceList'>";
 	print "<ul>";
-	if (file_exists($_REQUEST['frameworkLink'][$i])) {
-	include $_REQUEST['frameworkLink'][$i]; 
+
+	if (file_exists($linkFile)) {
+	include $linkFile; 
 	} else {
-		print "<h3 class='frameworkHeader'>No current information for " . $_REQUEST['framework'][$i] . "<br>";
+		print "<h3 class='frameworkHeader'>No current information for " . $framework['name'] . "<br>";
 	}
   print "</ul></div>";
+
+	}
+}
 }
 }
 ?>

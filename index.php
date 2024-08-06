@@ -143,7 +143,6 @@ print '</div>';
   <div id="centerDivLine">
   <?php
 ## Compliance Frameworks
-#$frameworks = array("NIST 800-53","ISO 27001","PCI DSS","FedRAMP","Common Criteria");
 $stringFrameworks = file_get_contents("compliance.json");
 $jsonFrameworks = json_decode($stringFrameworks, true);
 #print_r($jsonFrameworks);
@@ -152,7 +151,6 @@ print '<div class="form-group horizontal-checkboxes">
 <p class="smallTextFramework">To which of the following frameworks do you have to adhere?</p>';
 foreach ($jsonFrameworks as $framework) {
   print "<input id='" . $framework['name'] . "' name='framework[]' value='" . $framework['name'] . "' type='checkbox'>&nbsp <label class='smallTextFramework'  id='" . $framework['name'] . "' for='framework'>" . $framework['name'] . "</label>&nbsp &nbsp";
-  print "<input id='" . $framework['link'] . "' name='frameworkLink[]' value='" . $framework['link'] . "' type='hidden'>";
 }
 
 print '</div>';
