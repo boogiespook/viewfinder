@@ -19,7 +19,17 @@ body {
    text-align: center;
 
 }
-
+#centerDivLine {
+	margin: auto;
+   text-align: center;
+   border-bottom: #000000;
+   color:#0B6FA4;
+   font-size: larger;
+   font-weight: bold;
+   border-bottom: 2px solid black;
+   padding-bottom: 10px;
+   padding-top: 10px;
+}
   #eq  {
     width:100%; 
   }  
@@ -576,4 +586,41 @@ dl {
   .agendaBreak {
 	background-color: #008000;
 	color:#ddd;
+  }
+
+  .profileHeader {
+	padding-left: 10px;
+	color: rgb(3, 96, 236);
+    font-weight: bold;
+	font-size: larger;
+  }
+
+  .horizontal-checkboxes div.checkbox {
+	display: inline-block;
+	min-width: 50%;
+	}
+
+.niceList ul {
+	list-style: circle;
+	padding-left: 30px;
+}
+
+.niceList h3 {
+	font-weight: bold;
+}
+
+.smallTextFramework {
+	color: #ffffff;
+	font-size: small;
+	text-align: center;
+}
+
+.frameworkHeader {
+	color: rgb(3, 96, 236);
+    font-weight: bold;
+	font-size: larger;
+  }
+
+  .frameworkText {
+	color: #000000;
   }

@@ -38,12 +38,12 @@
 $urlData = "./report/index.php?" . $_SERVER["QUERY_STRING"];
 parse_str($_SERVER["QUERY_STRING"], $data);
 #print_r($data);
-$string = file_get_contents("controls.json");
+$backendFile = "controls-" . $data['profile'] . '.json';
+$string = file_get_contents($backendFile);
 $json = json_decode($string, true);
 $nextSteps = array();
 $nextStepsHow = array();
 $nextDomain = array();
-
 $controls = array();
 foreach($json as $key => $value) {
 	array_push($controls,$key);
@@ -68,6 +68,9 @@ function getRating($score) {
 		case ($score > 27):
 			$rating = "Advanced";
 	}
+	if($score == "0"){
+		$rating = "Not Rated";
+	}
 	return $rating;
 }
 
@@ -85,7 +88,6 @@ function getTotalRating($score) {
 
 $totalScore = 0;
 
-
 ?>
 
 
@@ -93,9 +95,14 @@ $totalScore = 0;
 
 <div class="tab">
   <button class="tablinks" onclick="openTab(event, 'Radar')" id="defaultOpen">Radar Chart & Maturity Levels</button>
-  <button class="tablinks" onclick="openTab(event, 'DetailedOutput')">Recommendations</button>
+  <button class="tablinks" onclick="openTab(event, 'Recommendations')">Recommendations</button>
   <button class="tablinks" onclick="openTab(event, 'NextSteps')">Agenda</button> 
-  <button class="tablinks""><a href="<?php print $urlData; ?>" target= _blank>Detailed Output</a></button> 
+  <?php
+  if (isset($_REQUEST['framework'])) {
+	print '<button class="tablinks" onclick="openTab(event, \'Frameworks\')">Security Frameworks</button>';
+}
+  ?>
+  <button class="tablinks""><a href="<?php print $urlData; ?>" target= _blank>Detailed Output</a>&nbsp; <i class='fas fa-external-link-alt'></i></button> 
 
 </div>
 
@@ -104,7 +111,9 @@ $totalScore = 0;
 <div class="htmlChart">
 <div class="radarChart"></div>
 </div>
+
 <div class="bigtableLeft">
+<h1 class="profileHeader">Profile: <?php print $data['profile'];?> </h1>
 
 <table class="spacedTable">
 	<thead>
@@ -132,12 +141,12 @@ foreach ($controls as $control) {
 }
 print '</table>';
 print "<br><table><td class='cell" . getTotalRating($totalScore) ."'>Overall rating: " . getTotalRating($totalScore) . " ($totalScore out of 252)</td></tr></table>";
+
 ?>
 </div>
 </div>
 <!-- Detailed Output -->
-<div id="DetailedOutput" class="tabcontent">
-
+<div id="Recommendations" class="tabcontent">
 <div id="accordion">
 <?php
 foreach ($controls as $control) {
@@ -218,7 +227,6 @@ if ($levelArray) {
 </div>
 <!-- End of Detailed Output -->
 
-
 <!-- Next Steps -->
 </div>
 <div id="NextSteps" class="tabcontent">
@@ -286,6 +294,29 @@ if ($levelArray) {
 </div>
 </div>
 
+<!-- Start of Security Frameworks -->
+<div id="Frameworks" class="tabcontent">
+
+
+<?php
+if (isset($_REQUEST['framework'])) {
+$frameworkCount = count($_REQUEST['framework']);
+for ($i = 0; $i < $frameworkCount; $i++) {
+print "<br><div class='niceList'>";
+	print "<ul>";
+	if (file_exists($_REQUEST['frameworkLink'][$i])) {
+	include $_REQUEST['frameworkLink'][$i]; 
+	} else {
+		print "<h3 class='frameworkHeader'>No current information for " . $_REQUEST['framework'][$i] . "<br>";
+	}
+  print "</ul></div>";
+}
+}
+?>
+</div>
+
+<!-- End of security frameworks  -->
+
 <script src="js/radarChart.js"></script>	
 		<script>
       
@@ -305,13 +336,15 @@ if ($levelArray) {
 
 			var data = [
 					  [
-						{axis:"Secure Infrastructure",value:<?php echo $controlTotal[1]; ?>},
-						{axis:"Secure Data",value:<?php echo $controlTotal[2]; ?>},
-						{axis:"Secure Identity",value:<?php echo $controlTotal[3]; ?>},
-						{axis:"Secure Application",value:<?php echo $controlTotal[4]; ?>},
-						{axis:"Secure Network",value:<?php echo $controlTotal[5]; ?>},
-						{axis:"Secure Recovery",value:<?php echo $controlTotal[6]; ?>},
-						{axis:"Secure Operations",value:<?php echo $controlTotal[7]; ?>}
+						<?php
+						$numControls = 1;
+						foreach ($controls as $control) {
+							$title = $json[$control]['title'];
+							print '{axis:"' . $title . '",value: ' . $controlTotal[$numControls]. '},';		
+							$numControls++;
+						}
+						?>
+
 					  ]
 					];
 			////////////////////////////////////////////////////////////// 

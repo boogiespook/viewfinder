@@ -51,10 +51,22 @@
                   <img class="pf-c-brand" src="images/telescope-viewfinder.png" alt="Viewfinder logo" />
                   </a>
                 </div>
+                <div class="widget">
+                  <?php
+                  if (isset($_REQUEST['profile'])) {
+                    $profile = $_REQUEST['profile'];
+                  } else {
+                    $profile = "Core";
+                  }
+                  ?>
+              <a href="index.php?profile=Core"><button>Core</button></a>&nbsp
+              <a href="index.php?profile=NIST"><button>NIST</button></a>&nbsp
+            </div>
 </header>
 <div class="container">
 <?php
-$string = file_get_contents("controls.json");
+$string = file_get_contents("controls-$profile.json");
+
 $json = json_decode($string, true);
 $controls = array();
 foreach($json as $key => $value) {
@@ -92,6 +104,10 @@ print "</ul>";
 }
 ?>
 <div class="tab">
+  <div id="centerDivLine">
+<h2>Profile: <?php echo $profile;?> </h2>
+
+</div>
 <?php
 $first=0;
 foreach ($controls as $control) {
@@ -108,8 +124,10 @@ $first++;
 
 </div>
 </div>
+
 <div class="container">
 <form action="results.php">
+  
 <fieldset>
 <!-- Tab content -->
 <?php
@@ -121,6 +139,25 @@ print '</div>';
 ?>
   </fieldset>
   <br>
+  <input type="hidden" name="profile" value="<?php echo $profile;?>">
+  <div id="centerDivLine">
+  <?php
+## Compliance Frameworks
+#$frameworks = array("NIST 800-53","ISO 27001","PCI DSS","FedRAMP","Common Criteria");
+$stringFrameworks = file_get_contents("compliance.json");
+$jsonFrameworks = json_decode($stringFrameworks, true);
+#print_r($jsonFrameworks);
+## Add checklist for compliance frameworks
+print '<div class="form-group horizontal-checkboxes">
+<p class="smallTextFramework">To which of the following frameworks do you have to adhere?</p>';
+foreach ($jsonFrameworks as $framework) {
+  print "<input id='" . $framework['name'] . "' name='framework[]' value='" . $framework['name'] . "' type='checkbox'>&nbsp <label class='smallTextFramework'  id='" . $framework['name'] . "' for='framework'>" . $framework['name'] . "</label>&nbsp &nbsp";
+  print "<input id='" . $framework['link'] . "' name='frameworkLink[]' value='" . $framework['link'] . "' type='hidden'>";
+}
+
+print '</div>';
+?>
+</div>
 <input class='ui-button ui-widget ui-corner-all' id='submitButton' type='submit' name='Submit' value='Submit'>
 </form>
 </div>
