@@ -11,6 +11,8 @@
 <link rel="stylesheet" href="css/patternfly.css" />
 <link rel="stylesheet" href="css/patternfly-addons.css" />
 <link rel="stylesheet" href="css/tab.css">
+<link rel="stylesheet" href="css/table2.css">
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
 <script src="https://kit.fontawesome.com/8a8c57f9cf.js" crossorigin="anonymous"></script>
@@ -34,10 +36,9 @@
                 </div>
 </header>
 <?php
-
 $urlData = "./report/index.php?" . $_SERVER["QUERY_STRING"];
 parse_str($_SERVER["QUERY_STRING"], $data);
-#print_r($data);
+
 $backendFile = "controls-" . $data['profile'] . '.json';
 $string = file_get_contents($backendFile);
 $json = json_decode($string, true);
@@ -48,7 +49,7 @@ $controls = array();
 foreach($json as $key => $value) {
 	array_push($controls,$key);
 	}
-	
+
 $controlTotal = array_fill(0,8,0);
 $controlDetails = array(array_fill(0,8,0));
 
@@ -103,6 +104,7 @@ $totalScore = 0;
 }
   ?>
   <button class="tablinks""><a href="<?php print $urlData; ?>" target= _blank>Detailed Output</a>&nbsp; <i class='fas fa-external-link-alt'></i></button> 
+  <button class="tablinks" onclick="openTab(event, 'TableOutput')">Maturity Table</button> 
 
 </div>
 
@@ -325,7 +327,144 @@ for ($i = 0; $i < $frameworkCount; $i++) {
 ?>
 </div>
 
-<!-- End of security frameworks  -->
+<!-- Start of table output  -->
+
+<div id="TableOutput" class="tabcontent">
+
+<?php
+  function getStatus ($capabilityId) {
+    if ($capabilityId == "1") {
+      $status = "completed";
+    } else {
+      $status = "notcompleted";
+    }
+    print $status;
+  }
+
+  $controlDetail = array_fill(1,8,0);
+  $controlDetails = array_fill(1,8,$controlDetail);
+  
+  foreach($data as $field=>$value){
+	  if (strpos($field,"control") !== false){
+	  $controlNumber = substr($field,7,1);
+	  $controlDetails[$controlNumber][$value] = 1;
+  }
+  }   
+?>
+
+<div class="bigtable">
+
+<table><thead><tr>
+<th class="table-header">Rating</th>
+<th class="table-header">Secure Infrastructure</th>
+<th class="table-header">Secure Data</th>
+<th class="table-header">Secure Identity</th>
+<th class="table-header">Secure Application</th>
+<th class="table-header">Secure Network</th>
+<th class="table-header">Secure Recovery</th>
+<th class="table-header">Secure Operations</th>
+
+</tr></thead>
+<tr>
+<td class="advanced"></td>
+<td class="<?php getStatus($controlDetails[1][8]); ?>">Identity-Based Perimeter</td>                 
+<td class="<?php getStatus($controlDetails[2][8]); ?>">Anomaly Detection </td>                        
+<td class="<?php getStatus($controlDetails[3][8]); ?>">Contextual / Risk Based Access </td>           
+<td class="<?php getStatus($controlDetails[4][8]); ?>">Interactive Application Security Testing </td> 
+<td class="<?php getStatus($controlDetails[5][8]); ?>">Zero Trust Network Access </td>                
+<td class="<?php getStatus($controlDetails[6][8]); ?>">Predictive Recovery </td>                      
+<td class="<?php getStatus($controlDetails[7][8]); ?>">Purple Teaming </td>                           
+</tr>
+
+<tr>
+<td class="advanced">Advanced</td>
+   
+<td class="<?php getStatus($controlDetails[1][7]); ?>">Service Mesh Security</td>               
+<td class="<?php getStatus($controlDetails[2][7]); ?>">Immutable Storage</td>                   
+<td class="<?php getStatus($controlDetails[3][7]); ?>">AI/ML Anomaly Detection</td>             
+<td class="<?php getStatus($controlDetails[4][7]); ?>">Runtime Application Self Protection</td> 
+<td class="<?php getStatus($controlDetails[5][7]); ?>">Microsegmentation</td>                   
+<td class="<?php getStatus($controlDetails[6][7]); ?>">Advanced Key Management</td>             
+<td class="<?php getStatus($controlDetails[7][7]); ?>">APT Detection & Response</td>            
+</tr>
+
+<tr>
+<td class="advanced"></td>
+<td class="<?php getStatus($controlDetails[1][6]); ?>">Container Runtime Security</td>      
+<td class="<?php getStatus($controlDetails[2][6]); ?>">Automated Posture Management</td>    
+<td class="<?php getStatus($controlDetails[3][6]); ?>">Identity Federation</td>             
+<td class="<?php getStatus($controlDetails[4][6]); ?>">Container Scanning</td>              
+<td class="<?php getStatus($controlDetails[5][6]); ?>">Secure Connections</td>              
+<td class="<?php getStatus($controlDetails[6][6]); ?>">Storage Scanning & Monitoring</td>   
+<td class="<?php getStatus($controlDetails[7][6]); ?>">Threat Intelligence Integration</td> 
+
+</tr>
+
+<tr>
+<td class="strategic"></td>
+<td class="<?php getStatus($controlDetails[1][5]); ?>">Secrets Management</td>                  
+<td class="<?php getStatus($controlDetails[2][5]); ?>">Loss Prevention</td>                     
+<td class="<?php getStatus($controlDetails[3][5]); ?>">Privileged Access Managemet</td>         
+<td class="<?php getStatus($controlDetails[4][5]); ?>">Web Application Firewall</td>            
+<td class="<?php getStatus($controlDetails[5][5]); ?>">Traffic Analysis</td>                    
+<td class="<?php getStatus($controlDetails[6][5]); ?>">Lifecycle Management</td>                
+<td class="<?php getStatus($controlDetails[7][5]); ?>">Orchestration, Automation, Response</td> 
+</tr>
+
+<tr>
+<td class="strategic">Strategic</td>
+<td class="<?php getStatus($controlDetails[1][4]); ?>">Automated Policy / Enforcement</td>       
+<td class="<?php getStatus($controlDetails[2][4]); ?>">Tokenization</td>                         
+<td class="<?php getStatus($controlDetails[3][4]); ?>">Single Sign On</td>                       
+<td class="<?php getStatus($controlDetails[4][4]); ?>">Dynamic Application Security Testing</td> 
+<td class="<?php getStatus($controlDetails[5][4]); ?>">Intrusion Detection / Prevention</td>     
+<td class="<?php getStatus($controlDetails[6][4]); ?>">Automated Failovers</td>                  
+<td class="<?php getStatus($controlDetails[7][4]); ?>">Endpoint Detection & Response</td>        
+</tr>
+
+<tr>
+<td class="strategic"></td>
+<td class="<?php getStatus($controlDetails[1][3]); ?>">Logging & Monitoring</td>                    
+<td class="<?php getStatus($controlDetails[2][3]); ?>">Access Control</td>                          
+<td class="<?php getStatus($controlDetails[3][3]); ?>">Multi-Factor Identification</td>             
+<td class="<?php getStatus($controlDetails[4][3]); ?>">Secure Code Practices</td>                   
+<td class="<?php getStatus($controlDetails[5][3]); ?>">Access Control Lists</td>                    
+<td class="<?php getStatus($controlDetails[6][3]); ?>">Consistent Versioning</td>                   
+<td class="<?php getStatus($controlDetails[7][3]); ?>">Security Information & Event Management</td> 
+</tr>
+
+<tr>
+<td class="foundation"></td>
+<td class="<?php getStatus($controlDetails[1][2]); ?>">Segmentation / Isolation</td>            
+<td class="<?php getStatus($controlDetails[2][2]); ?>">Encryption</td>                          
+<td class="<?php getStatus($controlDetails[3][2]); ?>">Role-Based Access Control</td>           
+<td class="<?php getStatus($controlDetails[4][2]); ?>">Static Application Security Testing</td> 
+<td class="<?php getStatus($controlDetails[5][2]); ?>">Secure Protocols</td>                    
+<td class="<?php getStatus($controlDetails[6][2]); ?>">Disaster Recovery Plan</td>              
+<td class="<?php getStatus($controlDetails[7][2]); ?>">Anti-Virus scan</td>                     
+</tr>
+
+<tr>
+<td class="foundation">Foundation</td>
+<td class="<?php getStatus($controlDetails[1][1]); ?>">Config Management</td>        
+<td class="<?php getStatus($controlDetails[2][1]); ?>">Classification</td>           
+<td class="<?php getStatus($controlDetails[3][1]); ?>">Passwords</td>                
+<td class="<?php getStatus($controlDetails[4][1]); ?>">Dependency Management</td>    
+<td class="<?php getStatus($controlDetails[5][1]); ?>">Firewalls & Segmentation</td> 
+<td class="<?php getStatus($controlDetails[6][1]); ?>">Backup & Redundancy</td>      
+<td class="<?php getStatus($controlDetails[7][1]); ?>">Incident Response Plan</td>   
+</tr>
+
+</table>
+
+</div>
+
+
+</div>
+<!-- End of table output  -->
+
+
+
 
 <script src="js/radarChart.js"></script>	
 		<script>

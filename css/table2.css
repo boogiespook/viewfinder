@@ -1,0 +1,54 @@
+.completed {
+	background-color: greenyellow;
+	border-top: 2px solid red;
+	border-right: 2px solid red;
+	border-left: 2px solid red;
+	border-bottom: 2px solid red;
+	font-size: small;
+}
+
+.notcompleted {
+	background-color:beige;
+	font-size: small;
+}
+
+.foundation {
+	background-color: aliceblue;	
+	border-right: 5px solid red;
+	font-size: small;
+}
+
+.strategic {
+	background-color: cornsilk;
+	border-right: 5px solid red;
+	font-size: small;
+}
+
+.advanced {
+	background-color: aquamarine;
+	border-right: 5px solid red;
+	font-size: small;
+}
+
+
+table {
+	border-collapse: collapse;
+	overflow: hidden;
+	box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+th,
+td {
+	background-color: rgba(255,255,255,0.2);
+}
+
+th {
+	text-align: left;
+	color: #fff;
+}
+
+.table-header {
+	background-color: #55608f;
+	color: #fff;
+}
+
