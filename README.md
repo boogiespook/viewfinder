@@ -1,6 +1,21 @@
-# Viewfinder
+![Telescope Logo](./images/telescope-viewfinder-inverse.png)
 
 ### Description
+Viewfinder is a simple web based to tool run a Security Maturity Assessment.
+#### Goals
+* The primary goal of a Security Maturity Assessment is to understand your security posture by measuring how well it implements, manages, and improves its cybersecurity processes.
+
+* A key objective is to foster resilience — enabling the organization to anticipate, withstand, recover, and evolve in response to security incidents.
+
+* It helps prioritise investments in cybersecurity by highlighting the most critical areas needing attention. It can reveal whether existing controls are effective or if additional resources/solutions are necessary to mitigate risks.
+
+#### Screenshots
+##### Main Page
+![Main Page](./images/main-page.png)
+##### Results Page
+![Results Page](./images/results-page.png)
+##### Maturity Table
+![Maturity Table](./images/results-table.png)
 
 ### Building
 
@@ -68,7 +83,7 @@ If everything is fine you will see a message like this
 
 ``` PHP 8.0.30 Development Server (http://0.0.0.0:8080) started ```
 
-You can then open a browser and type `localhost:8080` to open the main page.
+You can then open a browser and visit [https://localhost:8080](https://localhost:8080) to open the main page.
 
 ### Pre-built image
 If you would just like the image, it's available on quay.io:
