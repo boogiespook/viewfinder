@@ -16,7 +16,7 @@ Viewfinder is a simple web based to tool run a Security Maturity Assessment.
 ![Results Page](./images/results-page.png)
 ##### Maturity Table
 ![Maturity Table](./images/results-table.png)
-
+ 
 ### Building
 
 To build the viewfinder application locally you can use Podman or Docker.
