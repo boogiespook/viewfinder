@@ -97,14 +97,13 @@ $totalScore = 0;
 <div class="tab">
   <button class="tablinks" onclick="openTab(event, 'Radar')" id="defaultOpen">Radar Chart & Maturity Levels</button>
   <button class="tablinks" onclick="openTab(event, 'Recommendations')">Recommendations</button>
-  <button class="tablinks" onclick="openTab(event, 'NextSteps')">Agenda</button> 
+  <button class="tablinks" onclick="openTab(event, 'TableOutput')">Maturity Table</button> 
   <?php
   if (isset($_REQUEST['framework'])) {
 	print '<button class="tablinks" onclick="openTab(event, \'Frameworks\')">Security Frameworks</button>';
 }
   ?>
   <button class="tablinks""><a href="<?php print $urlData; ?>" target= _blank>Detailed Output</a>&nbsp; <i class='fas fa-external-link-alt'></i></button> 
-  <button class="tablinks" onclick="openTab(event, 'TableOutput')">Maturity Table</button> 
 
 </div>
 
@@ -229,102 +228,6 @@ if ($levelArray) {
 </div>
 <!-- End of Detailed Output -->
 
-<!-- Next Steps -->
-</div>
-<div id="NextSteps" class="tabcontent">
-<div class="nextStepsPage">
-<table class="paleBlueRows">
-<thead>
-<tr>
-<th>Time</th>
-<th>Agenda</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>09:00-09:15</td>
-<td>Welcome &amp; Introductions</td>
-</tr>
-<tr>
-<td>09:15-10:00</td>
-<td><?php echo $nextSteps[0];  ?></td>
-</tr>
-<tr>
-<td>10:00-10:45</td>
-<td><?php echo $nextSteps[1];  ?></td>
-</tr>
-<tr>
-<td class="agendaBreak">10:45-11:00</td>
-<td class="agendaBreak">Break</td>
-</tr>
-<tr>
-<td>11:00-11:45</td>
-<td><?php echo $nextSteps[2];  ?></td>
-</tr>
-<tr>
-<td>11:45-12:30</td>
-<td><?php echo $nextSteps[3];  ?></td>
-</tr>
-<tr>
-<td class="agendaBreak">12:30-13:00</td>
-<td class="agendaBreak">Lunch</td>
-</tr>
-<tr>
-<td>13:00-13:45</td>
-<td><?php echo $nextSteps[4];  ?></td>
-</tr>
-<tr>
-<td>13:45-14:30</td>
-<td><?php echo $nextSteps[5];  ?></td>
-</tr>
-<tr>
-<td class="agendaBreak">14:30-14:45</td>
-<td class="agendaBreak">Break</td>
-</tr>
-<tr>
-<td>14:45-15:30</td>
-<td><?php echo $nextSteps[6];  ?></td>
-</tr>
-<tr>
-<td>15:30-16:00</td>
-<td>Wrap Up &amp; Next Steps</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-
-<!-- Start of Security Frameworks -->
-<div id="Frameworks" class="tabcontent">
-
-
-<?php
-if (isset($_REQUEST['framework'])) {
-	$stringFrameworks = file_get_contents("compliance.json");
-	$jsonFrameworks = json_decode($stringFrameworks, true);
-
-$frameworkCount = count($_REQUEST['framework']);
-for ($i = 0; $i < $frameworkCount; $i++) {
-	foreach ($jsonFrameworks as $framework) {
-		if ($framework['name'] == $_REQUEST['framework'][$i]) {
-        $linkFile = $framework['link'];
-		print "<br><div class='niceList'>";
-	print "<ul>";
-
-	if (file_exists($linkFile)) {
-	include $linkFile; 
-	} else {
-		print "<h3 class='frameworkHeader'>No current information for " . $framework['name'] . "<br>";
-	}
-  print "</ul></div>";
-
-	}
-}
-}
-}
-?>
 </div>
 
 <!-- Start of table output  -->
@@ -462,6 +365,42 @@ for ($i = 0; $i < $frameworkCount; $i++) {
 
 </div>
 <!-- End of table output  -->
+
+
+
+
+<!-- Start of Security Frameworks -->
+<div id="Frameworks" class="tabcontent">
+
+
+<?php
+if (isset($_REQUEST['framework'])) {
+	$stringFrameworks = file_get_contents("compliance.json");
+	$jsonFrameworks = json_decode($stringFrameworks, true);
+
+$frameworkCount = count($_REQUEST['framework']);
+for ($i = 0; $i < $frameworkCount; $i++) {
+	foreach ($jsonFrameworks as $framework) {
+		if ($framework['name'] == $_REQUEST['framework'][$i]) {
+        $linkFile = $framework['link'];
+		print "<br><div class='niceList'>";
+	print "<ul>";
+
+	if (file_exists($linkFile)) {
+	include $linkFile; 
+	} else {
+		print "<h3 class='frameworkHeader'>No current information for " . $framework['name'] . "<br>";
+	}
+  print "</ul></div>";
+
+	}
+}
+}
+}
+?>
+</div>
+
+
 
 
 
