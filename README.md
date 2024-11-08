@@ -14,6 +14,8 @@ Viewfinder is a simple web based to tool run a Security Maturity Assessment.
 ![Main Page](./images/main-page.png)
 ##### Results Page
 ![Results Page](./images/results-page.png)
+##### Recommendations
+![Recommendations](./images/recommendations-page.png)
 ##### Maturity Table
 ![Maturity Table](./images/results-table.png)
  
