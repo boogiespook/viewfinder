@@ -9,7 +9,7 @@
   },
   "PCI DSS" : {
     "name" : "PCI DSS",
-    "link" : ""
+    "link" : "compliance/pci-dss.html"
   },
   "FedRAMP" : {
     "name" : "FedRAMP",
@@ -18,5 +18,13 @@
   "Common Criteria" : {
     "name" : "Common Criteria",
     "link" : ""
-  } 
+  },
+  "NIS2" : {
+    "name" : "NIS2",
+    "link" : "compliance/nis2.html"
+  },
+  "DORA" : {
+    "name" : "DORA",
+    "link" : "compliance/dora.html"
+  }  
 }
