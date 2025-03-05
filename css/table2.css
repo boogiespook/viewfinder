@@ -4,12 +4,16 @@
 	border-right: 2px solid red;
 	border-left: 2px solid red;
 	border-bottom: 2px solid red;
-	font-size: small;
+	font-size: medium;
+	padding: 20px;
+	text-align: center;
 }
 
 .notcompleted {
 	background-color:beige;
-	font-size: small;
+	font-size: medium;
+	padding: 20px;
+	text-align: center;
 }
 
 .foundation {

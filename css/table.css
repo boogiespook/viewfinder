@@ -26,11 +26,18 @@
 	padding-bottom: 10px;
 }
 table {
-	width: 500px;
 	border-collapse: collapse;
 	overflow: hidden;
 	border-radius: 5px;
 }
+
+.tableMaturity {
+	border-collapse: collapse;
+	overflow: hidden;
+	border-radius: 5px;
+	padding: 25px;
+}
+
 
 th,
 td {
